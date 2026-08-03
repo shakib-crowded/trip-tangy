@@ -1,0 +1,28 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Custom Theme Colors */
+@theme {
+  --color-primary: #0A2A6B;
+  --color-secondary: #FF8A00;
+  --color-accent: #FF2D55;
+  --color-ocean: #00B7E8; 
+  --color-ocean-light: #4FD1E8; 
+  --color-island: #0F766E; 
+  --color-sun: #FFC83D;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom styles for form elements */
+input, select, textarea {
+  font-family: system-ui, -apple-system, sans-serif;
+}
