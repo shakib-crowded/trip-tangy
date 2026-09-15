@@ -1,6 +1,6 @@
+// /api/auth/me
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAccessToken, verifyRefreshToken, signAccessToken } from "@/lib/jwt";
-import { setAuthCookies } from "@/lib/cookies";
 
 export async function GET(req: NextRequest) {
   const accessToken = req.cookies.get("accessToken")?.value;
@@ -24,6 +24,7 @@ export async function GET(req: NextRequest) {
         userId: payload.userId,
         email: payload.email,
         name: payload.name,
+        isAdmin: payload.isAdmin,
       });
 
       const res = NextResponse.json({ user: payload });

@@ -1,14 +1,14 @@
 "use client";
 
-import { Hero } from "../components/Hero";
+import Hero from "../components/Hotels/Hero";
+import HotelList from "../components/Hotels/HotelList";
 import HotelsWithTT from "../components/Hotels/HotelsWithTT";
-import VideoContent from "../components/Hotels/VideoContent";
 
 export default function HotelsPage() {
   return (
     <>
       <Hero />
-      <VideoContent/>
+      <HotelList/>
       <HotelsWithTT />
     </>
   );

@@ -167,14 +167,6 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block"
-                >
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -199,7 +191,7 @@ export default function Footer() {
                 href="/terms-conditions"
                 className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors"
               >
-                Terms
+                Terms and Conditions
               </Link>
               <span className="text-gray-600 hidden sm:inline">|</span>
               <Link

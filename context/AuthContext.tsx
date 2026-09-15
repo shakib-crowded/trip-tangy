@@ -1,23 +1,49 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
 interface User {
   userId: string;
   email: string;
   name: string;
+  isAdmin: boolean;
+  isVerified: boolean;
 }
 
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<{ success: boolean; message?: string }>;
+  login: (
+    email: string,
+    password: string,
+  ) => Promise<{
+    success: boolean;
+    message?: string;
+    requiresOtp?: boolean;
+    email?: string;
+  }>;
   register: (data: {
     name: string;
     email: string;
     phone: string;
     password: string;
-  }) => Promise<{ success: boolean; message?: string }>;
+  }) => Promise<{
+    success: boolean;
+    requiresOtp?: boolean;
+    email?: string;
+    message?: string;
+  }>;
+  verifyOtp: (
+    email: string,
+    otp: string,
+  ) => Promise<{ success: boolean; message?: string }>;
+  resendOtp: (email: string) => Promise<{ success: boolean; message?: string }>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -59,9 +85,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(data.user);
       return { success: true };
     }
-    return { success: false, message: data.message };
+    return {
+      success: false,
+      message: data.message,
+      requiresOtp: data.requiresOtp,
+      email: data.email,
+    };
   };
-
   const register = async (formData: {
     name: string;
     email: string;
@@ -75,10 +105,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (res.ok) {
+      return {
+        success: true,
+        requiresOtp: data.requiresOtp,
+        email: data.email,
+      };
+    }
+    return { success: false, message: data.message };
+  };
+
+  const verifyOtp = async (email: string, otp: string) => {
+    const res = await fetch("/api/auth/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, otp }),
+    });
+    const data = await res.json();
+    if (res.ok) {
       setUser(data.user);
       return { success: true };
     }
     return { success: false, message: data.message };
+  };
+
+  const resendOtp = async (email: string) => {
+    const res = await fetch("/api/auth/resend-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    return { success: res.ok, message: data.message };
   };
 
   const logout = async () => {
@@ -87,7 +144,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, register, logout, refreshUser }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isLoading,
+        login,
+        register,
+        logout,
+        refreshUser,
+        verifyOtp,
+        resendOtp,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

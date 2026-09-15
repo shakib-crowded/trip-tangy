@@ -11,10 +11,6 @@ export async function GET() {
 
 
   await connectDB();
-  console.log(await Booking.find())
-  console.log(authUser.userId)
   const bookings = await Booking.find({ userId: authUser.userId }).sort({ startDate: -1 });
-  console.log("These are bookings: ", bookings)
-
   return NextResponse.json({ bookings });
 }

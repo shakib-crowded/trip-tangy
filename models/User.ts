@@ -7,6 +7,8 @@ export interface IUser {
   phone: string;
   password: string;
   createdAt: Date;
+  isAdmin: boolean;
+  isVerified: boolean;
 }
 
 const UserSchema = new Schema<IUser>(
@@ -21,6 +23,14 @@ const UserSchema = new Schema<IUser>(
     },
     phone: { type: String, required: true, trim: true },
     password: { type: String, required: true }, // hashed
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );

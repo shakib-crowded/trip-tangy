@@ -10,8 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { siteConfig } from "@/lib/site";
 
 export const ourServices = [
-  { label: "Flights", href: "/flights" },
-  { label: "Hotels", href: "/hotels" },
+  { label: "Stays", href: "/hotels" },
   { label: "Holidays", href: "/holidays" },
 ];
 

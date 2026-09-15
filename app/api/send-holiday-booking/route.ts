@@ -181,10 +181,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Duration and budget are optional - provide defaults if not set
-    const duration = holidayDetails.duration || "any";
-    const budget = holidayDetails.budget || "any";
-    
     // Validate duration if provided
     if (holidayDetails.duration && !["3", "5", "7", "10", "14", "21"].includes(holidayDetails.duration)) {
       return NextResponse.json(

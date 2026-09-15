@@ -1,0 +1,1585 @@
+{
+  "destinations": [
+    {
+      "slug": "goa",
+      "name": "Goa",
+      "country": "India",
+      "tagline": "Beaches, nightlife, and endless sunshine",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030292/goa.webp",
+      "description": "India's favourite coastal escape, blending Portuguese heritage with golden beaches, buzzing beach shacks, and laid-back island energy. From the vibrant nightlife of Baga to the serene shores of Palolem, Goa offers something for every traveller. Explore centuries-old churches, indulge in fresh seafood, and experience the perfect blend of Indian and Portuguese cultures.",
+      "startingPrice": 10999,
+      "currency": "INR",
+      "highlights": [
+        "Beaches",
+        "Nightlife",
+        "Water Sports",
+        "Heritage Walks",
+        "Portuguese Cuisine",
+        "Sunset Cruises"
+      ],
+      "bestTimeToVisit": "Nov – Feb",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "goa-beach-getaway-3n4d",
+          "title": "Goa Beach Getaway",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 10999,
+          "originalPrice": 13999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789273910/goa_beach_gateway_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789273910/goa_beach_gateway_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789273910/goa_beach_gateway_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789273910/goa_beach_gateway_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights 4-star beachfront hotel",
+            "Daily breakfast",
+            "Airport transfers",
+            "Half-day North Goa sightseeing",
+            "Welcome drink on arrival",
+            "Complimentary Wi-Fi"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & Beach Time",
+              "description": "Arrive at Goa International Airport, transfer to hotel in a private cab. Check-in and freshen up. Spend the evening relaxing at the famous Calangute Beach. Enjoy a sunset walk and explore nearby beach shacks."
+            },
+            {
+              "day": 2,
+              "title": "North Goa Sightseeing",
+              "description": "Start your day with a delicious breakfast. Visit the historic Fort Aguada, then head to Baga Beach for water activities. Explore the famous Anjuna Flea Market, and end your day with a stunning sunset at Vagator Beach."
+            },
+            {
+              "day": 3,
+              "title": "Leisure & Water Sports",
+              "description": "Enjoy a leisurely morning at the hotel. Afternoon is reserved for optional water sports activities including parasailing, jet-skiing, and banana boat rides. Evening is free for exploring beach shacks, dining on fresh seafood, and enjoying Goa's nightlife."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast, check out from the hotel. Transfer to the airport for your onward journey with beautiful memories of Goa."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Friends", "Family"]
+        },
+        {
+          "slug": "goa-luxury-retreat-4n5d",
+          "title": "Goa Luxury Retreat",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 24999,
+          "originalPrice": 29999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789275788/goa_luxury_retreat_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789275788/goa_luxury_retreat_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789275788/goa_luxury_retreat_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789273910/goa_luxury_retreat_4.jpg"
+          ],
+          "inclusions": [
+            "4 nights 5-star luxury resort",
+            "Daily breakfast & 2 elaborate dinners",
+            "Airport transfers in private luxury cab",
+            "Sunset cruise with dinner and live music",
+            "One complimentary spa session",
+            "Pool access with private cabana"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Additional meals"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Paradise",
+              "description": "Private luxury transfer from the airport to your 5-star resort. Welcome drink and check-in. Enjoy a relaxing evening at the resort, exploring the private beach and premium amenities. Dinner at the resort's fine dining restaurant."
+            },
+            {
+              "day": 2,
+              "title": "South Goa Exploration",
+              "description": "After a lavish breakfast, embark on a guided tour of South Goa. Visit the serene Colva and Palolem beaches. Explore the UNESCO-listed Basilica of Bom Jesus. Return to the resort for a romantic candlelight dinner."
+            },
+            {
+              "day": 3,
+              "title": "Sunset Cruise Experience",
+              "description": "Enjoy a morning at leisure, taking advantage of resort amenities. In the evening, embark on a Mandovi River sunset cruise with live music, traditional Goan performances, and a sumptuous dinner under the stars."
+            },
+            {
+              "day": 4,
+              "title": "Spa & Leisure Day",
+              "description": "Indulge in a premium spa session at the resort's award-winning wellness center. Spend the rest of the day lounging by the pool with a private cabana. Optional water sports or local market shopping available."
+            },
+            {
+              "day": 5,
+              "title": "Departure with Memories",
+              "description": "Enjoy one last breakfast with ocean views. Check out and transfer to the airport with unforgettable memories of luxury Goan hospitality."
+            }
+          ],
+          "hotelCategory": "5-star",
+          "groupType": ["Couple", "Honeymoon"]
+        }
+      ]
+    },
+    {
+      "slug": "manali",
+      "name": "Manali",
+      "country": "India",
+      "tagline": "Snow-capped peaks and pine-scented valleys",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030296/manali.webp",
+      "description": "A Himalayan getaway of snow, adventure sports, and cozy mountain stays in Himachal Pradesh. Nestled between towering peaks, Manali offers pristine natural beauty, thrilling winter sports, and a perfect escape from the chaos of city life. Experience the magic of snow-covered landscapes, ancient temples, and warm Himachali hospitality.",
+      "startingPrice": 13499,
+      "currency": "INR",
+      "highlights": [
+        "Snow Activities",
+        "Adventure Sports",
+        "Mountain Views",
+        "Local Cuisine",
+        "Shopping",
+        "Photography"
+      ],
+      "bestTimeToVisit": "Oct – Feb",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "manali-snow-escape-4n5d",
+          "title": "Manali Snow Escape",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 13499,
+          "originalPrice": 16999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_snow_escape_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_snow_escape_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_snow_escape_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_snow_escape_4.jpg"
+          ],
+          "inclusions": [
+            "4 nights comfortable hotel stay",
+            "Daily breakfast & dinner",
+            "Volvo/private cab transfers",
+            "Solang Valley & Rohtang Pass excursion (subject to permit)",
+            "Guide for sightseeing",
+            "Bonfire evening with local music"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "Adventure activity charges",
+            "GST as applicable",
+            "Personal expenses"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Manali",
+              "description": "Arrive at Kullu-Bhuntar airport or Manali bus stand. Transfer to your hotel in a private cab. Check-in and relax. Evening at leisure to explore the famous Mall Road. Enjoy local Himachali cuisine at a traditional restaurant."
+            },
+            {
+              "day": 2,
+              "title": "Solang Valley Adventure",
+              "description": "After breakfast, head to Solang Valley, known as the adventure hub of Manali. Experience the thrilling cable car ride and breathtaking mountain views. Enjoy snow activities including skiing, snowboarding, and snowmobiling (optional). Return to the hotel for a cozy bonfire evening."
+            },
+            {
+              "day": 3,
+              "title": "Rohtang Pass Excursion",
+              "description": "Full-day excursion to the majestic Rohtang Pass (subject to weather conditions and permit availability). Marvel at the snow-capped Himalayas, enjoy snow activities, and capture stunning photographs. Packed lunch will be provided. Return to Manali by evening."
+            },
+            {
+              "day": 4,
+              "title": "Old Manali & Hidimba Temple",
+              "description": "Explore the charm of Old Manali with its vibrant cafes and local shops. Visit the ancient Hidimba Devi Temple, built in 1553. Explore the Vashisht Temple and its hot water springs. Evening free for shopping at Mall Road for traditional handicrafts and souvenirs."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "Enjoy a final breakfast in the mountains. Check out and transfer to the airport/bus stand for your return journey, taking with you unforgettable Himalayan memories."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Family", "Friends", "Couple"]
+        },
+        {
+          "slug": "manali-adventure-expedition-5n6d",
+          "title": "Manali Adventure Expedition",
+          "duration": { "nights": 5, "days": 6 },
+          "price": 18999,
+          "originalPrice": 22999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_adventure_expedition_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789279941/manali_adventure_expedition_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789288767/manali_adventure_expedition_3.jpg"
+          ],
+          "inclusions": [
+            "5 nights premium hotel stay",
+            "Daily breakfast, lunch & dinner",
+            "AC Volvo transfers",
+            "Paragliding session in Solang Valley",
+            "River rafting at Kullu",
+            "Guided trek to Jogini Waterfalls",
+            "All adventure equipment and gear"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "GST as applicable",
+            "Personal expenses",
+            "Additional activities"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & Orientation",
+              "description": "Arrive at Manali. Check-in to premium hotel. Evening orientation session about the adventure activities. Welcome dinner with local music performances."
+            },
+            {
+              "day": 2,
+              "title": "Paragliding & Solang Valley",
+              "description": "Start your adventure with a thrilling paragliding session in Solang Valley. Experience the feeling of flying over the beautiful valley. Afternoon exploring Solang Valley, cable car ride, and snow activities."
+            },
+            {
+              "day": 3,
+              "title": "River Rafting at Kullu",
+              "description": "Journey to Kullu for an exhilarating river rafting experience on the Beas River. Navigate through grade 3+ rapids with expert guides. Return to Manali for a relaxing evening."
+            },
+            {
+              "day": 4,
+              "title": "Jogini Waterfalls Trek",
+              "description": "Guided trek to the beautiful Jogini Waterfalls. Experience the pristine beauty of Himalayan forests and enjoy a picnic lunch at the waterfall base. Capture stunning photographs of the natural landscape."
+            },
+            {
+              "day": 5,
+              "title": "Leisure & Cultural Experience",
+              "description": "A day of relaxation and cultural immersion. Visit local monasteries, interact with the locals, learn about the rich Himalayan culture. Evening at leisure to explore Mall Road or try local cafes."
+            },
+            {
+              "day": 6,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to the airport/bus stand. End your adventure with incredible memories and a certificate of completion."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Friends", "Adventure Enthusiasts"]
+        }
+      ]
+    },
+    {
+      "slug": "kerala",
+      "name": "Kerala",
+      "country": "India",
+      "tagline": "God's Own Country - Backwaters, beaches, and lush greenery",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030294/kerala.webp",
+      "description": "Welcome to Kerala, a tropical paradise known as God's Own Country. Experience the tranquil backwaters of Alleppey, lush tea plantations of Munnar, pristine beaches of Kovalam, and the rich cultural heritage of this beautiful state. From Ayurvedic treatments to houseboat cruises, Kerala offers a perfect blend of relaxation and adventure.",
+      "startingPrice": 15999,
+      "currency": "INR",
+      "highlights": [
+        "Backwaters",
+        "Tea Gardens",
+        "Ayurveda",
+        "Beaches",
+        "Houseboat",
+        "Wildlife"
+      ],
+      "bestTimeToVisit": "Sep – Mar",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "kerala-backwater-delight-4n5d",
+          "title": "Kerala Backwater Delight",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 15999,
+          "originalPrice": 19999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789278931/kerala_backwater_delight_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789278931/kerala_backwater_delight_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789278936/kerala_backwater_delight_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789278931/kerala_backwater_delight_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789278935/kerala_backwater_delight_5.jpg"
+          ],
+          "inclusions": [
+            "4 nights premium hotel/resort stay",
+            "Daily breakfast & 2 dinners",
+            "Private AC transfers",
+            "Houseboat cruise in Alleppey with lunch",
+            "Guided sightseeing in Munnar",
+            "Ayurvedic massage session"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Kochi - Transfer to Munnar",
+              "description": "Arrive at Kochi International Airport. Transfer to Munnar (4 hours drive). Check-in at the resort amidst tea plantations. Enjoy the cool mountain air and breathtaking views."
+            },
+            {
+              "day": 2,
+              "title": "Munnar Tea Gardens & Sightseeing",
+              "description": "Explore the stunning tea gardens of Munnar. Visit the Tea Museum to learn about tea processing. Visit Echo Point, Mattupetty Dam, and enjoy the panoramic views of the Western Ghats."
+            },
+            {
+              "day": 3,
+              "title": "Alleppey Houseboat Experience",
+              "description": "Drive to Alleppey, the Venice of the East. Check-in to a luxurious houseboat for a backwater cruise. Glide through the serene canals, witness village life, and enjoy traditional Kerala cuisine on board. Overnight stay on the houseboat."
+            },
+            {
+              "day": 4,
+              "title": "Kovalam Beach Relaxation",
+              "description": "Disembark from the houseboat and drive to Kovalam. Enjoy the pristine beaches, try water sports activities, and witness the famous sunset at Lighthouse Beach. Evening at leisure."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "After a relaxing morning at the beach, check out and transfer to Trivandrum International Airport for your onward journey."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Family", "Honeymoon"]
+        }
+      ]
+    },
+    {
+      "slug": "jaipur",
+      "name": "Jaipur",
+      "country": "India",
+      "tagline": "The Pink City - Royalty, forts, and vibrant culture",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030294/jaipur.webp",
+      "description": "Step into the royal heritage of Jaipur, the Pink City of India. Explore magnificent forts, beautiful palaces, and colorful bazaars. Experience the rich Rajput culture, traditional cuisine, and warm hospitality. Jaipur is a treasure trove of history, architecture, and vibrant local life.",
+      "startingPrice": 8999,
+      "currency": "INR",
+      "highlights": [
+        "Fort Palaces",
+        "Heritage Tours",
+        "Shopping",
+        "Local Cuisine",
+        "Culture",
+        "Photography"
+      ],
+      "bestTimeToVisit": "Oct – Mar",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "jaipur-royal-heritage-3n4d",
+          "title": "Jaipur Royal Heritage",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 8999,
+          "originalPrice": 11999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789289381/jaipur_royal_heritage_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789289381/jaipur_royal_heritage_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789289381/jaipur_royal_heritage_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789289381/jaipur_royal_heritage_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights heritage hotel stay",
+            "Daily breakfast",
+            "Airport transfers",
+            "Guided sightseeing of Jaipur",
+            "Elephant ride at Amer Fort",
+            "Cultural evening with folk dances"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Monument entry fees"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & City Palace",
+              "description": "Arrive in Jaipur and transfer to your hotel. After check-in, visit the magnificent City Palace and its museum. Evening at leisure to explore the local markets of Jaipur."
+            },
+            {
+              "day": 2,
+              "title": "Amer Fort & Royal Experience",
+              "description": "Visit the majestic Amer Fort with an elephant ride experience. Explore the fort's architectural marvels and get panoramic views of the city. Visit the Jal Mahal (Water Palace) on the way back."
+            },
+            {
+              "day": 3,
+              "title": "Jaipur City Tour & Cultural Evening",
+              "description": "Explore the Pink City with visits to Hawa Mahal, Jantar Mantar, and the observatory. Afternoon at leisure for shopping in the vibrant bazaars. Evening cultural performance featuring traditional Rajasthani folk dances and music."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to the airport for your departure, taking with you beautiful memories of Rajasthan's royalty."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Family", "Friends", "Couple"]
+        }
+      ]
+    },
+    {
+      "slug": "darjeeling",
+      "name": "Darjeeling",
+      "country": "India",
+      "tagline": "Queen of the Himalayas - Tea gardens and majestic views",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030278/darjeeling.webp",
+      "description": "Nestled in the Lesser Himalayas, Darjeeling is a stunning hill station known for its tea gardens, panoramic views of Kanchenjunga, and the famous Darjeeling Himalayan Railway. Experience the colonial charm, vibrant Buddhist culture, and the serene beauty of this Himalayan gem.",
+      "startingPrice": 11999,
+      "currency": "INR",
+      "highlights": [
+        "Tea Gardens",
+        "Toy Train",
+        "Himalayan Views",
+        "Buddhist Monasteries",
+        "Trekking",
+        "Local Cuisine"
+      ],
+      "bestTimeToVisit": "Mar – Jun, Sep – Nov",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "darjeeling-toy-train-3n4d",
+          "title": "Darjeeling Toy Train & Tea Experience",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 11999,
+          "originalPrice": 14999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308105/darjeeling_toy_train_tea_experience_1.avif",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308154/darjeeling_toy_train_tea_experience_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308107/darjeeling_toy_train_tea_experience_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308107/darjeeling_toy_train_tea_experience_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights premium hotel stay",
+            "Daily breakfast & dinner",
+            "Darjeeling Toy Train ride",
+            "Tea garden tour",
+            "Tiger Hill sunrise excursion",
+            "Local sightseeing"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Darjeeling",
+              "description": "Arrive at Bagdogra Airport or New Jalpaiguri Railway Station. Transfer to Darjeeling by private cab. Check-in to your hotel and enjoy the evening exploring Mall Road and local markets."
+            },
+            {
+              "day": 2,
+              "title": "Tiger Hill & Toy Train",
+              "description": "Early morning visit to Tiger Hill for breathtaking sunrise views over Kanchenjunga. Return to hotel for breakfast. Enjoy the famous Darjeeling Himalayan Railway 'Toy Train' ride. Visit Ghoom Monastery and Batasia Loop."
+            },
+            {
+              "day": 3,
+              "title": "Tea Gardens & Sightseeing",
+              "description": "Explore the lush tea gardens of Darjeeling, learn about tea processing at a local factory. Visit the Himalayan Mountaineering Institute, Zoo, and Peace Pagoda. Evening at leisure to explore local cafes."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Bagdogra Airport or New Jalpaiguri Railway Station for your onward journey."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Family", "Couple", "Solo"]
+        }
+      ]
+    },
+    {
+      "slug": "shimla",
+      "name": "Shimla",
+      "country": "India",
+      "tagline": "The Summer Capital - Colonial charm in the Himalayas",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030299/shimla.webp",
+      "description": "Shimla, the former summer capital of British India, is a charming hill station with colonial architecture, scenic views, and pleasant weather. Walk along the famous Mall Road, ride the toy train, and experience the rich heritage of this Himalayan paradise.",
+      "startingPrice": 9999,
+      "currency": "INR",
+      "highlights": [
+        "Mall Road",
+        "Toy Train",
+        "Colonial Heritage",
+        "Scenic Views",
+        "Ice Skating",
+        "Local Markets"
+      ],
+      "bestTimeToVisit": "Mar – Jun, Dec – Feb",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "shimla-colonial-charm-3n4d",
+          "title": "Shimla Colonial Charm",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 9999,
+          "originalPrice": 12999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308556/shimla_colonial_charm_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308556/shimla_colonial_charm_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308556/shimla_colonial_charm_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789308556/shimla_colonial_charm_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights heritage hotel stay",
+            "Daily breakfast & dinner",
+            "Volvo/private cab transfers",
+            "Shimla sightseeing tour",
+            "Visit to Jakhoo Temple",
+            "Ice skating session (seasonal)"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "Personal expenses",
+            "GST as applicable",
+            "Toy train ticket"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Shimla",
+              "description": "Arrive at Kalka or Chandigarh and transfer to Shimla. Check-in to your heritage hotel. Evening walk on the famous Mall Road and The Ridge. Enjoy local Himachali cuisine."
+            },
+            {
+              "day": 2,
+              "title": "Shimla Heritage Tour",
+              "description": "Visit the Viceregal Lodge (Indian Institute of Advanced Study), Christ Church, and Jakhoo Temple. Afternoon at leisure to explore the colonial architecture and local markets. Evening at the famous Scandal Point."
+            },
+            {
+              "day": 3,
+              "title": "Kalka-Shimla Toy Train Experience",
+              "description": "Experience the UNESCO-listed Kalka-Shimla Toy Train ride. Marvel at the 102 tunnels and stunning Himalayan views. Return to Shimla by evening. Enjoy a cultural evening at the hotel."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Chandigarh or Kalka for your onward journey with beautiful memories of Shimla."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Family", "Friends", "Couple"]
+        }
+      ]
+    },
+    {
+      "slug": "udaipur",
+      "name": "Udaipur",
+      "country": "India",
+      "tagline": "City of Lakes - Romance and royal heritage",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030302/udaipur.webp",
+      "description": "Udaipur, the City of Lakes, is a romantic destination with stunning palaces, serene lakes, and vibrant bazaars. From the majestic City Palace to the beautiful Lake Pichola, Udaipur offers an unforgettable experience of Rajasthan's royal heritage and beauty.",
+      "startingPrice": 10999,
+      "currency": "INR",
+      "highlights": [
+        "Lakes",
+        "Palaces",
+        "Heritage Walks",
+        "Boat Rides",
+        "Local Cuisine",
+        "Shopping"
+      ],
+      "bestTimeToVisit": "Sep – Mar",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "udaipur-romantic-getaway-3n4d",
+          "title": "Udaipur Romantic Getaway",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 10999,
+          "originalPrice": 13999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361183/udaipur_romantic_getaway_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361183/udaipur_romantic_getaway_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361183/udaipur_romantic_getaway_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361183/udaipur_romantic_getaway_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights luxury heritage hotel",
+            "Daily breakfast & candlelight dinner",
+            "Airport transfers",
+            "Lake Pichola boat ride",
+            "Guided city tour",
+            "Cultural evening with folk dance"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Monument entry fees"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & Lake Pichola Boat Ride",
+              "description": "Arrive at Udaipur Airport. Transfer to hotel. Evening boat ride on Lake Pichola with views of the City Palace and Lake Palace. Welcome dinner at a lakeside restaurant."
+            },
+            {
+              "day": 2,
+              "title": "City Palace & Heritage Walk",
+              "description": "Visit the magnificent City Palace complex, including the museum and crystal gallery. Explore the Jagdish Temple. Afternoon walking tour through the old city's vibrant markets and havelis."
+            },
+            {
+              "day": 3,
+              "title": "Fateh Sagar & Monsoon Palace",
+              "description": "Visit Fateh Sagar Lake and Nehru Garden. Afternoon excursion to the Monsoon Palace for panoramic views of the city and lakes. Evening at leisure for shopping or exploring local cuisine."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Udaipur Airport for your onward journey."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Honeymoon", "Family"]
+        }
+      ]
+    },
+    {
+      "slug": "mysore",
+      "name": "Mysore",
+      "country": "India",
+      "tagline": "The City of Palaces - Royal grandeur and silk",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030297/mysore.webp",
+      "description": "Mysore, the cultural capital of Karnataka, is famous for its magnificent Mysore Palace, vibrant Dussehra celebrations, and royal heritage. Explore beautiful gardens, ancient temples, and the rich tradition of silk and sandalwood.",
+      "startingPrice": 7999,
+      "currency": "INR",
+      "highlights": [
+        "Mysore Palace",
+        "Royal Heritage",
+        "Silk Weaving",
+        "Gardens",
+        "Temples",
+        "Shopping"
+      ],
+      "bestTimeToVisit": "Oct – Mar",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "mysore-royal-heritage-2n3d",
+          "title": "Mysore Royal Heritage",
+          "duration": { "nights": 2, "days": 3 },
+          "price": 7999,
+          "originalPrice": 9999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361699/mysore_royal_heritage_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361699/mysore_royal_heritage_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361699/mysore_royal_heritage_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789361699/mysore_royal_heritage_4.jpg"
+          ],
+          "inclusions": [
+            "2 nights heritage hotel stay",
+            "Daily breakfast",
+            "Mysore Palace guided tour",
+            "Visit to Brindavan Gardens",
+            "Silk weaving demonstration",
+            "Airport/railway transfers"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "Personal expenses",
+            "GST as applicable",
+            "Camera fees"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & Mysore Palace",
+              "description": "Arrive at Mysore. Check-in to heritage hotel. Visit the magnificent Mysore Palace, one of India's most stunning palaces. Evening at leisure exploring the illuminated palace and local markets."
+            },
+            {
+              "day": 2,
+              "title": "Chamundeshwari Temple & Gardens",
+              "description": "Visit the Chamundeshwari Temple atop Chamundi Hill with panoramic views of Mysore. Afternoon visit to Brindavan Gardens with its musical fountain show. Evening at leisure for silk shopping."
+            },
+            {
+              "day": 3,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to the airport/railway station for your onward journey."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Family", "Couple", "Friends"]
+        }
+      ]
+    },
+    {
+      "slug": "rishikesh",
+      "name": "Rishikesh",
+      "country": "India",
+      "tagline": "Yoga, adventure, and spirituality by the Ganges",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030298/rishikesh.webp",
+      "description": "Rishikesh, the Yoga Capital of the World, offers a perfect blend of spirituality, adventure, and natural beauty. Experience the tranquility of the Ganges, practice yoga and meditation, and indulge in thrilling river rafting and trekking.",
+      "startingPrice": 6999,
+      "currency": "INR",
+      "highlights": [
+        "River Rafting",
+        "Yoga & Meditation",
+        "Ganga Aarti",
+        "Trekking",
+        "Ashrams",
+        "Bungee Jumping"
+      ],
+      "bestTimeToVisit": "Sep – Jun",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "rishikesh-yoga-adventure-3n4d",
+          "title": "Rishikesh Yoga & Adventure",
+          "duration": { "nights": 3, "days": 4 },
+          "price": 6999,
+          "originalPrice": 8999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362199/rishikesh_yoga_adventure_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362199/rishikesh_yoga_adventure_2.png",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362199/rishikesh_yoga_adventure_3.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362201/rishikesh_yoga_adventure_4.jpg"
+          ],
+          "inclusions": [
+            "3 nights riverside resort stay",
+            "Daily breakfast & dinner",
+            "Daily yoga and meditation sessions",
+            "River rafting experience",
+            "Ganga Aarti visit",
+            "Guided trek to Neer Garh Waterfall"
+          ],
+          "exclusions": [
+            "Flights/train",
+            "Personal expenses",
+            "GST as applicable",
+            "Adventure activities"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival & Ganga Aarti",
+              "description": "Arrive at Rishikesh. Transfer to riverside resort. Evening visit to Triveni Ghat for the famous Ganga Aarti ceremony. Experience the spiritual vibes of the holy river."
+            },
+            {
+              "day": 2,
+              "title": "Yoga & River Rafting",
+              "description": "Morning yoga session at the resort. Afternoon thrilling river rafting experience on the Ganges (Grade 2-3 rapids). Evening meditation session and sunset view over the river."
+            },
+            {
+              "day": 3,
+              "title": "Waterfall Trek & Ashrams",
+              "description": "Guided trek to the beautiful Neer Garh Waterfall. Visit the famous Beatles Ashram and other spiritual centers along the Ganges. Evening at leisure for shopping on Laxman Jhula."
+            },
+            {
+              "day": 4,
+              "title": "Departure",
+              "description": "After breakfast and a final yoga session, check out and transfer to Dehradun Airport or Haridwar Railway Station for your onward journey."
+            }
+          ],
+          "hotelCategory": "3-star",
+          "groupType": ["Solo", "Friends", "Couple"]
+        }
+      ]
+    },
+    {
+      "slug": "andaman",
+      "name": "Andaman & Nicobar Islands",
+      "country": "India",
+      "tagline": "Tropical paradise - Turquoise waters and white sands",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030276/andaman.webp",
+      "description": "The Andaman Islands are a tropical paradise with pristine beaches, crystal-clear turquoise waters, and rich marine life. Experience scuba diving in the coral reefs, explore historic cellular jails, and relax on the stunning white-sand beaches.",
+      "startingPrice": 18999,
+      "currency": "INR",
+      "highlights": [
+        "Beaches",
+        "Scuba Diving",
+        "Marine Life",
+        "Historic Sites",
+        "Water Sports",
+        "Island Hopping"
+      ],
+      "bestTimeToVisit": "Oct – May",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "andaman-beach-haven-4n5d",
+          "title": "Andaman Beach Haven",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 18999,
+          "originalPrice": 23999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362725/andaman_beach_haven_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362725/andaman_beach_haven_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362725/andaman_beach_haven_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362726/andaman_beach_haven_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362725/andaman_beach_haven_5.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362725/andaman_beach_haven_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789362726/andaman_beach_haven_7.webp"
+          ],
+          "inclusions": [
+            "4 nights beach resort stay",
+            "Daily breakfast & 2 dinners",
+            "Airport transfers",
+            "Scuba diving session",
+            "Cellular Jail visit",
+            "Island hopping tour"
+          ],
+          "exclusions": [
+            "Flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival at Port Blair",
+              "description": "Arrive at Veer Savarkar International Airport. Transfer to your beach resort. Evening visit to the Cellular Jail and the famous Sound & Light Show depicting India's freedom struggle."
+            },
+            {
+              "day": 2,
+              "title": "Scuba Diving & Havelock Island",
+              "description": "Ferry to Havelock Island. Experience scuba diving at Elephant Beach with professional instructors. Explore the vibrant coral reefs and marine life. Return to Port Blair by evening."
+            },
+            {
+              "day": 3,
+              "title": "Island Exploration",
+              "description": "Day trip to Ross Island and North Bay Island. Explore the ruins, enjoy glass-bottom boat rides, and snorkeling. Visit the aquarium and local markets in the evening."
+            },
+            {
+              "day": 4,
+              "title": "Beach Relaxation",
+              "description": "Visit the beautiful Wandoor Beach and Mahatma Gandhi Marine National Park. Enjoy swimming, sunbathing, and beach activities. Evening at leisure with sunset views."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Port Blair Airport for your onward journey with memories of paradise."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Family", "Friends"]
+        }
+      ]
+    },
+    {
+      "slug": "bali",
+      "name": "Bali",
+      "country": "Indonesia",
+      "tagline": "Island of Gods - Beaches, temples, and rice terraces",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030277/bali.webp",
+      "description": "Bali is a tropical paradise known for its stunning beaches, ancient temples, and lush rice terraces. Experience the spiritual culture, surf the perfect waves, and enjoy the unique blend of nature and tradition that makes Bali a top destination.",
+      "startingPrice": 34999,
+      "currency": "INR",
+      "highlights": [
+        "Temples",
+        "Beaches",
+        "Rice Terraces",
+        "Surfing",
+        "Culture",
+        "Sunset Views"
+      ],
+      "bestTimeToVisit": "Apr – Sep",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "bali-spiritual-escape-4n5d",
+          "title": "Bali Spiritual Escape",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 34999,
+          "originalPrice": 42999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789364341/bali_spiritual_escape_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789364342/bali_spiritual_escape_2.avif",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789364342/bali_spiritual_escape_3.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789364342/bali_spiritual_escape_4.jpg"
+          ],
+          "inclusions": [
+            "4 nights beachfront resort stay",
+            "Daily breakfast",
+            "Airport transfers",
+            "Ubud cultural tour",
+            "Tanah Lot Temple visit",
+            "Sunset dinner cruise"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Visa fees"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Paradise",
+              "description": "Arrive at Ngurah Rai International Airport. Transfer to your beachfront resort. Welcome drink and check-in. Evening at leisure exploring Kuta Beach and the local markets."
+            },
+            {
+              "day": 2,
+              "title": "Ubud - Culture & Rice Terraces",
+              "description": "Day trip to Ubud, the cultural heart of Bali. Visit the iconic Tegalalang Rice Terraces, the Sacred Monkey Forest, and the Ubud Palace. Afternoon exploring Ubud's art markets and galleries."
+            },
+            {
+              "day": 3,
+              "title": "Tanah Lot & Sunset",
+              "description": "Visit the famous Tanah Lot Temple, perched on a rock formation in the sea. Explore the surrounding area. Evening sunset cruise with dinner and live music."
+            },
+            {
+              "day": 4,
+              "title": "Beach & Spa Day",
+              "description": "Indulge in a Balinese spa treatment at the resort. Enjoy beach activities including surfing, snorkeling, or relaxing by the pool. Evening at leisure to explore Seminyak's vibrant nightlife."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to the airport for your international departure."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Honeymoon", "Family"]
+        }
+      ]
+    },
+    {
+      "slug": "thailand",
+      "name": "Thailand",
+      "country": "Thailand",
+      "tagline": "Land of Smiles - Beaches, temples, and street food",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030303/thailand.webp",
+      "description": "Thailand is a vibrant destination known for its golden temples, tropical beaches, and delicious street food. From the bustling streets of Bangkok to the stunning islands of Phuket, Thailand offers a perfect mix of culture, adventure, and relaxation.",
+      "startingPrice": 29999,
+      "currency": "INR",
+      "highlights": [
+        "Temples",
+        "Beaches",
+        "Street Food",
+        "Night Markets",
+        "Culture",
+        "Islands"
+      ],
+      "bestTimeToVisit": "Nov – Apr",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "thailand-bangkok-phuket-5n6d",
+          "title": "Thailand - Bangkok & Phuket",
+          "duration": { "nights": 5, "days": 6 },
+          "price": 29999,
+          "originalPrice": 36999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365459/thailand_bangkok_phuket_1.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365459/thailand_bangkok_phuket_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365460/thailand_bangkok_phuket_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365459/thailand_bangkok_phuket_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365459/thailand_bangkok_phuket_5.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365460/thailand_bangkok_phuket_6.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789365459/thailand_bangkok_phuket_7.jpg"
+          ],
+          "inclusions": [
+            "5 nights premium hotel stay",
+            "Daily breakfast",
+            "Domestic flights (Bangkok-Phuket)",
+            "Airport transfers",
+            "Bangkok temple tour",
+            "Phuket island tour"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Bangkok",
+              "description": "Arrive at Suvarnabhumi Airport. Transfer to hotel. Evening at leisure exploring Sukhumvit area and local street food markets."
+            },
+            {
+              "day": 2,
+              "title": "Bangkok Temple Tour",
+              "description": "Visit the Grand Palace, Wat Phra Kaew (Emerald Buddha), and Wat Arun. Afternoon at leisure for shopping at Chatuchak Market or Siam Paragon. Evening Chao Phraya River dinner cruise."
+            },
+            {
+              "day": 3,
+              "title": "Fly to Phuket",
+              "description": "Morning flight to Phuket. Transfer to beach resort. Afternoon at leisure on Patong Beach. Evening visit to the famous Bangla Road nightlife area."
+            },
+            {
+              "day": 4,
+              "title": "Phuket Island Tour",
+              "description": "Day tour of Phuket's stunning viewpoints including Promthep Cape and Karon Viewpoint. Visit Wat Chalong and Big Buddha. Evening at leisure for shopping at the night market."
+            },
+            {
+              "day": 5,
+              "title": "Phi Phi Islands Day Trip",
+              "description": "Full-day island hopping tour to the famous Phi Phi Islands. Experience Maya Bay, snorkeling, and swimming in crystal-clear waters. Return to Phuket by evening."
+            },
+            {
+              "day": 6,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Phuket International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Friends", "Couple", "Family"]
+        }
+      ]
+    },
+    {
+      "slug": "vietnam",
+      "name": "Vietnam",
+      "country": "Vietnam",
+      "tagline": "Halong Bay, ancient cities, and vibrant culture",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030304/vietnam.webp",
+      "description": "Vietnam is a land of breathtaking landscapes, rich history, and vibrant culture. From the stunning limestone karsts of Halong Bay to the ancient streets of Hoi An, Vietnam offers an unforgettable journey through Southeast Asia.",
+      "startingPrice": 39999,
+      "currency": "INR",
+      "highlights": [
+        "Halong Bay",
+        "Ancient Cities",
+        "Street Food",
+        "Culture",
+        "Landscapes",
+        "History"
+      ],
+      "bestTimeToVisit": "Sep – Apr",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "vietnam-express-6n7d",
+          "title": "Vietnam Express - Hanoi to Ho Chi Minh",
+          "duration": { "nights": 6, "days": 7 },
+          "price": 39999,
+          "originalPrice": 47999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_4.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_5.avif",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789366329/vietnam_express_7.jpg"
+          ],
+          "inclusions": [
+            "6 nights premium hotel stay",
+            "Daily breakfast & 3 dinners",
+            "Internal flights",
+            "Halong Bay cruise",
+            "Guided city tours",
+            "Airport transfers"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Visa fees"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Hanoi",
+              "description": "Arrive at Noi Bai International Airport. Transfer to hotel in Hanoi's Old Quarter. Explore the vibrant streets and enjoy your first taste of Vietnamese cuisine."
+            },
+            {
+              "day": 2,
+              "title": "Hanoi City Tour",
+              "description": "Visit Ho Chi Minh Mausoleum, One Pillar Pagoda, and Temple of Literature. Afternoon exploring the Old Quarter by cyclo. Evening at leisure or optional Water Puppet Show."
+            },
+            {
+              "day": 3,
+              "title": "Halong Bay Cruise",
+              "description": "Transfer to Halong Bay for an unforgettable overnight cruise. Kayak through limestone karsts, visit floating villages, and enjoy fresh seafood. Sunset views from the deck."
+            },
+            {
+              "day": 4,
+              "title": "Return to Hanoi - Fly to Da Nang",
+              "description": "Morning Tai Chi on the deck. Explore more of Halong Bay before returning to Hanoi. Afternoon flight to Da Nang. Transfer to Hoi An and check-in to hotel."
+            },
+            {
+              "day": 5,
+              "title": "Hoi An Ancient Town",
+              "description": "Explore the UNESCO-listed Hoi An Ancient Town. Visit Japanese Covered Bridge, Chinese Assembly Halls, and the local market. Afternoon optional visit to An Bang Beach."
+            },
+            {
+              "day": 6,
+              "title": "Flight to Ho Chi Minh City",
+              "description": "Morning flight to Ho Chi Minh City. Visit the War Remnants Museum and Reunification Palace. Evening exploring the vibrant Ben Thanh Market and street food scene."
+            },
+            {
+              "day": 7,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Tan Son Nhat International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Family", "Couple", "Friends"]
+        }
+      ]
+    },
+    {
+      "slug": "australia",
+      "name": "Australia",
+      "country": "Australia",
+      "tagline": "Down Under - Beaches, outback, and vibrant cities",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030276/australia.webp",
+      "description": "Australia is a vast continent with stunning beaches, the rugged Outback, and vibrant cities like Sydney and Melbourne. Experience the Great Barrier Reef, explore the Blue Mountains, and enjoy the laid-back Australian lifestyle.",
+      "startingPrice": 79999,
+      "currency": "INR",
+      "highlights": [
+        "Beaches",
+        "Great Barrier Reef",
+        "Sydney Opera House",
+        "Wildlife",
+        "Outback",
+        "Urban Lifestyle"
+      ],
+      "bestTimeToVisit": "Sep – Nov, Mar – May",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "australia-east-coast-7n8d",
+          "title": "Australia East Coast Adventure",
+          "duration": { "nights": 7, "days": 8 },
+          "price": 79999,
+          "originalPrice": 99999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_1.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_5.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367084/australia_east_cost_adventure_7.jpeg"
+          ],
+          "inclusions": [
+            "7 nights premium hotel stay",
+            "Daily breakfast",
+            "Domestic flights",
+            "Sydney Harbour Cruise",
+            "Great Barrier Reef tour",
+            "Airport transfers"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Sydney",
+              "description": "Arrive at Sydney International Airport. Transfer to hotel. Evening at leisure exploring Darling Harbour and the vibrant city lights."
+            },
+            {
+              "day": 2,
+              "title": "Sydney Iconic Tour",
+              "description": "Visit the Sydney Opera House and take a guided tour. Walk across the Sydney Harbour Bridge. Enjoy a scenic harbour cruise with lunch. Visit Bondi Beach in the afternoon."
+            },
+            {
+              "day": 3,
+              "title": "Blue Mountains Excursion",
+              "description": "Day trip to the stunning Blue Mountains. Ride the Scenic Skyway and Railway, explore the Three Sisters, and enjoy breathtaking views. Visit the local wildlife park to see kangaroos and koalas."
+            },
+            {
+              "day": 4,
+              "title": "Fly to Cairns",
+              "description": "Morning flight to Cairns. Transfer to hotel. Afternoon at leisure exploring the Cairns Esplanade and lagoon. Evening at leisure."
+            },
+            {
+              "day": 5,
+              "title": "Great Barrier Reef",
+              "description": "Full-day boat tour to the Great Barrier Reef. Snorkel and scuba dive among vibrant coral gardens and marine life. Enjoy a buffet lunch on the boat. Return to Cairns by evening."
+            },
+            {
+              "day": 6,
+              "title": "Kuranda Scenic Railway",
+              "description": "Journey on the historic Kuranda Scenic Railway through the rainforest. Visit Kuranda Village and the Butterfly Sanctuary. Return via the Skyrail Rainforest Cableway."
+            },
+            {
+              "day": 7,
+              "title": "Cairns - Leisure Day",
+              "description": "Day of leisure to explore Cairns or opt for additional activities like white water rafting or bungee jumping. Evening farewell dinner at a local seafood restaurant."
+            },
+            {
+              "day": 8,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Cairns International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Family", "Couple", "Friends"]
+        }
+      ]
+    },
+    {
+      "slug": "dubai",
+      "name": "Dubai",
+      "country": "UAE",
+      "tagline": "City of Superlatives - Luxury, shopping, and desert adventures",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030278/dubai.webp",
+      "description": "Dubai is a dazzling city known for its futuristic architecture, luxury shopping, and vibrant nightlife. From the iconic Burj Khalifa to the desert dunes, Dubai offers a unique blend of modernity and traditional Arabian culture.",
+      "startingPrice": 45999,
+      "currency": "INR",
+      "highlights": [
+        "Burj Khalifa",
+        "Shopping Malls",
+        "Desert Safari",
+        "Luxury Lifestyle",
+        "Dubai Marina",
+        "Water Parks"
+      ],
+      "bestTimeToVisit": "Nov – Mar",
+      "explore": true,
+      "packages": [
+        {
+          "slug": "dubai-luxury-escape-4n5d",
+          "title": "Dubai Luxury Escape",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 45999,
+          "originalPrice": 55999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367436/dubai_luxury_escape_1.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_3.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_4.png",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_5.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789367435/dubai_luxury_escape_7.jpg"
+          ],
+          "inclusions": [
+            "4 nights luxury hotel stay",
+            "Daily breakfast",
+            "Airport transfers",
+            "Burj Khalifa visit (At the Top)",
+            "Desert safari with dinner",
+            "Dubai city tour"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Dubai",
+              "description": "Arrive at Dubai International Airport. Private transfer to your luxury hotel. Welcome drink and check-in. Evening at leisure exploring Dubai Marina and JBR Beach."
+            },
+            {
+              "day": 2,
+              "title": "Burj Khalifa & Dubai Mall",
+              "description": "Visit the iconic Burj Khalifa and go to the observation deck 'At the Top'. Explore the Dubai Mall with its aquarium, ice rink, and countless shops. Evening watch the fountain show."
+            },
+            {
+              "day": 3,
+              "title": "Desert Safari Adventure",
+              "description": "Afternoon desert safari experience. Dune bashing in 4x4 vehicles, sandboarding, and camel riding. Enjoy a traditional Bedouin-style dinner with belly dance performances."
+            },
+            {
+              "day": 4,
+              "title": "Dubai City Tour",
+              "description": "Guided city tour covering the old and new Dubai. Visit the Gold Souk, Spice Souk, Al Fahidi Historical Neighborhood, and the Dubai Creek. Optional visit to Dubai Frame."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "After breakfast, check out and private transfer to Dubai International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "5-star",
+          "groupType": ["Couple", "Honeymoon", "Family"]
+        }
+      ]
+    },
+    {
+      "slug": "hong-kong",
+      "name": "Hong Kong",
+      "country": "Hong Kong",
+      "tagline": "Asia's World City - Skyscrapers, shopping, and cuisine",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789030297/hongkong.webp",
+      "description": "Hong Kong is a dazzling metropolis with iconic skyscrapers, vibrant street markets, and world-class dining. Experience the blend of East and West, ride the Star Ferry, and explore the spectacular Victoria Harbour.",
+      "startingPrice": 45999,
+      "currency": "INR",
+      "highlights": [
+        "Victoria Harbour",
+        "Skyscrapers",
+        "Shopping",
+        "Dim Sum",
+        "Theme Parks",
+        "Night Markets"
+      ],
+      "bestTimeToVisit": "Oct – Dec",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "hong-kong-express-4n5d",
+          "title": "Hong Kong Express - City & Culture",
+          "duration": { "nights": 4, "days": 5 },
+          "price": 45999,
+          "originalPrice": 54999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_2.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_3.webp",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_5.jpeg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_6.avif",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789368600/hong_kong_express_7.jpg"
+          ],
+          "inclusions": [
+            "4 nights premium hotel stay",
+            "Daily breakfast",
+            "Airport transfers",
+            "Victoria Peak visit",
+            "Disneyland or Ocean Park (1 day)",
+            "Star Ferry ride"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Hong Kong",
+              "description": "Arrive at Hong Kong International Airport. Transfer to hotel. Evening at leisure exploring the Tsim Sha Tsui promenade and the Symphony of Lights show."
+            },
+            {
+              "day": 2,
+              "title": "Victoria Peak & City Tour",
+              "description": "Visit Victoria Peak and enjoy panoramic views of the city. Explore the Peak Tower and walk the Peak Circle Walk. Afternoon exploring the vibrant streets of Mong Kok and Ladies' Market."
+            },
+            {
+              "day": 3,
+              "title": "Hong Kong Disneyland",
+              "description": "Full day at Hong Kong Disneyland Resort. Experience thrilling rides, shows, and attractions. Enjoy the parade and fireworks display in the evening."
+            },
+            {
+              "day": 4,
+              "title": "Ocean Park & Aberdeen",
+              "description": "Visit Ocean Park Hong Kong with its marine animals, rides, and cable car views. Evening exploration of Aberdeen Fishing Village and a traditional sampan ride."
+            },
+            {
+              "day": 5,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Hong Kong International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Family", "Friends", "Couple"]
+        }
+      ]
+    },
+    {
+      "slug": "new-zealand",
+      "name": "New Zealand",
+      "country": "New Zealand",
+      "tagline": "Middle-earth - Snow-capped peaks, fjords, and adventure",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789031216/new_zealand.webp",
+      "description": "New Zealand is a breathtaking destination of stunning landscapes, from the fjords of Milford Sound to the snow-capped Southern Alps. Experience the Maori culture, outdoor adventures, and the famous Lord of the Rings filming locations.",
+      "startingPrice": 89999,
+      "currency": "INR",
+      "highlights": [
+        "Fjords",
+        "Mountains",
+        "Maori Culture",
+        "Adventure Sports",
+        "Glaciers",
+        "Hobbiton"
+      ],
+      "bestTimeToVisit": "Nov – Apr",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "new-zealand-adventure-7n8d",
+          "title": "New Zealand Adventure",
+          "duration": { "nights": 7, "days": 8 },
+          "price": 89999,
+          "originalPrice": 109999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_3.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_5.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789369330/new_zealand_adventure_7.jpg"
+          ],
+          "inclusions": [
+            "7 nights premium hotel/lodge stay",
+            "Daily breakfast & 2 dinners",
+            "Domestic flights",
+            "Milford Sound cruise",
+            "Hobbiton movie set tour",
+            "Adventure activities"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Auckland",
+              "description": "Arrive at Auckland International Airport. Transfer to hotel. Evening exploring the Sky Tower and Viaduct Harbour."
+            },
+            {
+              "day": 2,
+              "title": "Hobbiton & Rotorua",
+              "description": "Day trip to Hobbiton Movie Set from The Lord of the Rings. Afternoon transfer to Rotorua. Visit the Maori cultural center and hot springs."
+            },
+            {
+              "day": 3,
+              "title": "Rotorua - Geothermal & Culture",
+              "description": "Explore Rotorua's geothermal wonders including geysers and boiling mud pools. Experience a traditional Maori hangi feast and cultural performance."
+            },
+            {
+              "day": 4,
+              "title": "Fly to Queenstown",
+              "description": "Morning flight to Queenstown, the adventure capital. Check-in to your hotel. Afternoon at leisure exploring the lakeside town."
+            },
+            {
+              "day": 5,
+              "title": "Milford Sound Cruise",
+              "description": "Full-day excursion to Milford Sound. Enjoy a scenic boat cruise through the fjord with waterfalls and wildlife. Return to Queenstown by evening."
+            },
+            {
+              "day": 6,
+              "title": "Adventure Activities",
+              "description": "Day of adventure activities in Queenstown. Options include bungee jumping, skydiving, jet boating, or scenic helicopter flight over the Southern Alps."
+            },
+            {
+              "day": 7,
+              "title": "Arrowtown & Wineries",
+              "description": "Visit the historic gold-mining town of Arrowtown. Afternoon wine tasting in the Central Otago wine region. Farewell dinner at a local restaurant."
+            },
+            {
+              "day": 8,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Queenstown International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Couple", "Friends", "Adventure Enthusiasts"]
+        }
+      ]
+    },
+    {
+      "slug": "japan",
+      "name": "Japan",
+      "country": "Japan",
+      "tagline": "Land of the Rising Sun - Tradition, technology, and cherry blossoms",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789370063/japan.webp",
+      "description": "Japan is a captivating blend of ancient traditions and futuristic technology. From the bustling streets of Tokyo to the ancient temples of Kyoto, experience the cherry blossoms, world-class cuisine, and unmatched hospitality of Japan.",
+      "startingPrice": 69999,
+      "currency": "INR",
+      "highlights": [
+        "Cherry Blossoms",
+        "Temples",
+        "Bullet Trains",
+        "Cuisine",
+        "Technology",
+        "Culture"
+      ],
+      "bestTimeToVisit": "Mar – May, Sep – Nov",
+      "explore": false,
+      "packages": [
+        {
+          "slug": "japan-discovery-6n7d",
+          "title": "Japan Discovery - Tokyo, Kyoto, Osaka",
+          "duration": { "nights": 6, "days": 7 },
+          "price": 69999,
+          "originalPrice": 84999,
+          "currency": "INR",
+          "images": [
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_1.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_2.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_3.jpeg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_4.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_5.jpeg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_6.jpg",
+            "https://res.cloudinary.com/qbhq0l88/image/upload/v1789369709/japan_discovery_7.jpg"
+          ],
+          "inclusions": [
+            "6 nights premium hotel stay",
+            "Daily breakfast & 2 dinners",
+            "Bullet train tickets",
+            "Guided city tours",
+            "Cultural experiences",
+            "Airport transfers"
+          ],
+          "exclusions": [
+            "International flights",
+            "Personal expenses",
+            "GST as applicable",
+            "Travel insurance"
+          ],
+          "itinerary": [
+            {
+              "day": 1,
+              "title": "Arrival in Tokyo",
+              "description": "Arrive at Narita Airport. Transfer to hotel. Evening at leisure exploring Shibuya crossing and Shinjuku's vibrant nightlife."
+            },
+            {
+              "day": 2,
+              "title": "Tokyo City Tour",
+              "description": "Visit the Meiji Shrine and Sensoji Temple. Explore Asakusa and the Imperial Palace Gardens. Afternoon at leisure for shopping in Ginza or Harajuku."
+            },
+            {
+              "day": 3,
+              "title": "Bullet Train to Kyoto",
+              "description": "Experience the Shinkansen (Bullet Train) to Kyoto. Visit the famous Golden Pavilion (Kinkakuji). Explore the Arashiyama Bamboo Forest."
+            },
+            {
+              "day": 4,
+              "title": "Kyoto - Temples & Geishas",
+              "description": "Visit the beautiful Fushimi Inari Shrine with its thousands of torii gates. Explore Kiyomizudera Temple. Evening walk through Gion, the geisha district."
+            },
+            {
+              "day": 5,
+              "title": "Osaka - Food & Culture",
+              "description": "Day trip to Osaka. Visit Osaka Castle and Dotonbori for its vibrant street food and nightlife. Visit the famous Universal Studios Japan (optional)."
+            },
+            {
+              "day": 6,
+              "title": "Nara Day Trip",
+              "description": "Visit Nara, Japan's ancient capital. See the Great Buddha at Todaiji Temple and the friendly deer in Nara Park. Return to Kyoto by evening."
+            },
+            {
+              "day": 7,
+              "title": "Departure",
+              "description": "After breakfast, check out and transfer to Kansai International Airport for your return flight."
+            }
+          ],
+          "hotelCategory": "4-star",
+          "groupType": ["Family", "Couple", "Friends"]
+        }
+      ]
+    }
+  ]
+}

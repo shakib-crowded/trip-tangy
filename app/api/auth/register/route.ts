@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
-import { signAccessToken, signRefreshToken } from "@/lib/jwt";
-import { setAuthCookies } from "@/lib/cookies";
+import Otp from "@/models/Otp";
+import { generateOtp, hashOtp } from "@/lib/otp";
+import { sendOtpEmail } from "@/lib/mailer";
+
+const OTP_TTL_MINUTES = 10;
 
 export async function POST(req: NextRequest) {
   try {
@@ -15,29 +18,46 @@ export async function POST(req: NextRequest) {
 
     await connectDB();
 
-    const existingUser = await User.findOne({ email: email.toLowerCase() });
-    if (existingUser) {
+    const normalizedEmail = email.toLowerCase();
+    const existingUser = await User.findOne({ email: normalizedEmail });
+
+    if (existingUser?.isVerified) {
       return NextResponse.json({ message: "Email already registered" }, { status: 409 });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
-      name,
-      email: email.toLowerCase(),
-      phone,
-      password: hashedPassword,
-    });
 
-    const payload = { userId: user._id.toString(), email: user.email, name: user.name };
-    const accessToken = await signAccessToken(payload);
-    const refreshToken = await signRefreshToken(payload);
+    // Reuse the pending unverified doc if they retry registering with the same email
+    const user = existingUser
+      ? await User.findOneAndUpdate(
+          { email: normalizedEmail },
+          { name, phone, password: hashedPassword },
+          { new: true }
+        )
+      : await User.create({
+          name,
+          email: normalizedEmail,
+          phone,
+          password: hashedPassword,
+          isVerified: false,
+        });
 
-    const res = NextResponse.json({
-      message: "Account created",
-      user: { id: user._id, name: user.name, email: user.email },
+    const otp = generateOtp();
+    const codeHash = await hashOtp(otp);
+
+    await Otp.findOneAndUpdate(
+      { email: normalizedEmail, purpose: "register" },
+      { codeHash, attempts: 0, expiresAt: new Date(Date.now() + OTP_TTL_MINUTES * 60 * 1000), lastSentAt: new Date() },
+      { upsert: true }
+    );
+
+    await sendOtpEmail(normalizedEmail, name, otp);
+
+    return NextResponse.json({
+      message: "Verification code sent",
+      requiresOtp: true,
+      email: normalizedEmail,
     });
-    setAuthCookies(res, accessToken, refreshToken);
-    return res;
   } catch (err) {
     console.error("Register error:", err);
     return NextResponse.json({ message: "Something went wrong" }, { status: 500 });
