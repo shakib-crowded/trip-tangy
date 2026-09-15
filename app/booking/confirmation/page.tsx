@@ -69,6 +69,7 @@ export default async function BookingConfirmationPage({
   // the hold has already lapsed (no expiresAt + still pending shouldn't
   // normally happen, but treat it as expired rather than looping forever).
   if (booking.status === "pending") {
+    // eslint-disable-next-line react-hooks/purity
     if (booking.expiresAt && new Date(booking.expiresAt).getTime() > Date.now()) {
       redirect(
         `/booking/payment?bookingId=${booking._id}&ref=${booking.bookingRef}`,
@@ -100,7 +101,7 @@ export default async function BookingConfirmationPage({
   }
 
   // status is "confirmed" or "completed" here
-  const primaryGuest = booking.guests.find((g) => g.isPrimary) ?? booking.guests[0];
+  const primaryGuest = booking.guests.find((g: { isPrimary: any; }) => g.isPrimary) ?? booking.guests[0];
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
@@ -125,7 +126,7 @@ export default async function BookingConfirmationPage({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 rounded-2xl bg-primary/[0.03] p-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 rounded-2xl bg-primary/3 p-5 sm:grid-cols-2">
             <div className="flex items-start gap-3">
               <CalendarDays className="mt-0.5 h-4 w-4 text-primary/40" />
               <div>
