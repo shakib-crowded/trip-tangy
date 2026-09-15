@@ -160,7 +160,7 @@ export default async function HotelDetailPage({ params }: Params) {
             <BookingWidget
               hotelId={hotel._id.toString()}
               hotelSlug={hotel.slug}
-              rooms={hotel.rooms.map((room) => ({
+              rooms={hotel.rooms.map((room: any) => ({
                 _id: room._id.toString(),
                 roomType: room.roomType,
                 description: room.description,
