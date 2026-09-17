@@ -87,7 +87,7 @@ export default function Header() {
             <div className="relative h-9 w-32 sm:h-10 sm:w-36 lg:h-12 lg:w-40">
               <Image
                 src="/logo.svg"
-                alt="Trip Tangy"
+                alt="API Logo"
                 fill
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
                 className="object-contain"

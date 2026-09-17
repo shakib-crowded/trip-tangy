@@ -41,6 +41,7 @@ export async function GET(req: NextRequest) {
 // POST /api/admin/hotels — create a new hotel listing.
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin(req);
+  console.log("Admin auth result:", auth);
   if (auth.error) return auth.error;
 
   try {
