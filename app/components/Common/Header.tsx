@@ -86,7 +86,7 @@ export default function Header() {
           <Link href="/" className="flex shrink-0 items-center gap-3">
             <div className="relative h-9 w-32 sm:h-10 sm:w-36 lg:h-12 lg:w-40">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Trip Tangy"
                 fill
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
