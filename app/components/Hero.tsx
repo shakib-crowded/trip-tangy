@@ -1,253 +1,167 @@
 "use client";
 
-type IconProps = { className?: string };
+import Image from "next/image";
+import { MapPin, Search } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+type SearchType = "hotels" | "holidays";
 
 export function Hero() {
+  const router = useRouter();
+  const [searchType, setSearchType] = useState<SearchType>("hotels");
+  const [destination, setDestination] = useState("");
+
+  const handleSearch = () => {
+    const basePath =
+      searchType === "hotels"
+        ? "/hotels/results"
+        : "/holidays/search";
+
+    const query = destination.trim()
+      ? `?destination=${encodeURIComponent(destination.trim())}`
+      : "";
+
+    router.push(`${basePath}${query}`);
+  };
+
   return (
-    <section
-      className={`relative overflow-hidden bg-primary font-(family-name:--font-body)`}
-    >
-      {/* ---------- Background: dusk sky sinking into the sea ---------- */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary) 38%, var(--color-ocean) 100%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden bg-primary">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <Image
+          src="/home_hero.jpg"
+          alt="Beautiful holiday destination"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
 
-      {/* Sun glow, low on the horizon */}
-      <div
-        className="sun-glow absolute right-[6%] top-[46%] h-64 w-64 rounded-full bg-sun/60 blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute right-[11%] top-[50%] h-20 w-20 rounded-full"
-        style={{
-          background: "linear-gradient(135deg, var(--color-sun), var(--color-secondary))",
-          boxShadow: "0 0 70px 12px rgba(255,200,61,0.45)",
-        }}
-        aria-hidden="true"
-      />
+        <div className="absolute inset-0 bg-black/45" />
 
-      {/* Shoreline */}
-      <div className="absolute inset-x-0 bottom-0 text-island" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="h-20 w-full sm:h-28 lg:h-36"
-        >
-          <path
-            fill="currentColor"
-            d="M0,96 C240,150 480,20 720,52 C960,84 1200,142 1440,88 L1440,180 L0,180 Z"
-          />
-        </svg>
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="absolute inset-x-0 top-0 -mt-0.5 h-20 w-full text-ocean-light/40 sm:h-28 lg:h-36"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            d="M0,96 C240,150 480,20 720,52 C960,84 1200,142 1440,88"
-          />
-        </svg>
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-linear-to-t from-primary/80 to-transparent" />
       </div>
 
-      {/* ---------- Content ---------- */}
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-6 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-32">
-        {/* Left: message + product entry points */}
-        <div>
-          <p
-            className="fade-up mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-ocean-light"
-            style={{ animationDelay: "0.05s" }}
-          >
-            Made for how India travels
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+        <div className="max-w-3xl">
+          {/* Eyebrow */}
+          <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-white/80">
+            Your journey starts here
           </p>
 
-          <h1
-            className="fade-up font-(family-name:--font-display) text-[2.6rem] font-semibold leading-[1.05] text-white sm:text-6xl lg:text-[4rem]"
-            style={{ animationDelay: "0.15s" }}
-          >
-            Your next trip,
+          {/* Heading */}
+          <h1 className="font-(family-name:--font-display) text-5xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[4.8rem]">
+            Stay somewhere
             <br />
-            <span className="text-secondary">with a little tang.</span>
+            <span className="text-secondary">worth staying for.</span>
           </h1>
 
-          <p
-            className="fade-up mt-6 max-w-md text-lg text-white/75"
-            style={{ animationDelay: "0.25s" }}
-          >
-            Flights, hotels and holiday packages — planned fast, priced fair,
-            and picked with taste.
+          <p className="mt-6 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
+            Discover comfortable stays and thoughtfully planned holidays
+            across India and beyond.
           </p>
         </div>
 
-        {/* Right: signature visual — a boarding pass, not a chat bubble */}
-        <div className="relative hidden lg:block">
-          <svg
-            className="pointer-events-none absolute -left-20 top-[28%] h-40 w-72"
-            viewBox="0 0 280 160"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              className="flight-path"
-              d="M4 138C64 42 148 8 264 18"
-              stroke="var(--color-ocean-light)"
-              strokeWidth="2"
-              strokeDasharray="6 9"
-              strokeLinecap="round"
-            />
-          </svg>
+        {/* Search Engine */}
+        <div className="mt-10 max-w-4xl">
+          <div className="overflow-hidden rounded-2xl bg-white shadow-2xl shadow-black/25">
+            {/* Tabs */}
+            <div className="flex border-b border-gray-100">
+              <button
+                type="button"
+                onClick={() => setSearchType("hotels")}
+                className={`relative px-7 py-4 text-sm font-semibold transition ${
+                  searchType === "hotels"
+                    ? "text-primary"
+                    : "text-gray-400 hover:text-primary"
+                }`}
+              >
+                Hotels
 
-          <div
-            className="boarding-pass-card mx-auto w-75 rounded-[28px] bg-white p-6"
-            style={{ boxShadow: "0 30px 60px -15px rgba(10,42,107,0.5)" }}
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-primary">
-                Trip Tangy
-              </span>
-              <PlaneIcon className="h-4 w-4 rotate-45 text-secondary" />
+                {searchType === "hotels" && (
+                  <span className="absolute inset-x-7 bottom-0 h-0.5 bg-secondary" />
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setSearchType("holidays")}
+                className={`relative px-7 py-4 text-sm font-semibold transition ${
+                  searchType === "holidays"
+                    ? "text-primary"
+                    : "text-gray-400 hover:text-primary"
+                }`}
+              >
+                Holiday Packages
+
+                {searchType === "holidays" && (
+                  <span className="absolute inset-x-7 bottom-0 h-0.5 bg-secondary" />
+                )}
+              </button>
             </div>
 
-            <div className="mt-6 flex items-center justify-between">
-              <div>
-                <p className="font-(family-name:--font-display) text-2xl font-bold text-primary">
-                  DEL
-                </p>
-                <p className="text-[11px] text-primary/50">Delhi</p>
-              </div>
-              <div className="relative mx-3 h-px flex-1 border-t-2 border-dashed border-ocean/40">
-                <PlaneIcon className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-90 text-ocean" />
-              </div>
-              <div className="text-right">
-                <p className="font-(family-name:--font-display) text-2xl font-bold text-primary">
-                  GOI
-                </p>
-                <p className="text-[11px] text-primary/50">Goa</p>
+            {/* Search */}
+            <div className="p-4 sm:p-5">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                {/* Destination */}
+                <div className="flex min-h-14 flex-1 items-center gap-3 rounded-xl border border-gray-200 px-4 transition focus-within:border-primary">
+                  <MapPin className="h-5 w-5 shrink-0 text-primary/60" />
+
+                  <div className="min-w-0 flex-1">
+                    <label
+                      htmlFor="destination"
+                      className="block text-[11px] font-medium uppercase tracking-wide text-gray-400"
+                    >
+                      {searchType === "hotels"
+                        ? "Where do you want to stay?"
+                        : "Where do you want to go?"}
+                    </label>
+
+                    <input
+                      id="destination"
+                      type="text"
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleSearch();
+                        }
+                      }}
+                      placeholder={
+                        searchType === "hotels"
+                          ? "City, hotel or destination"
+                          : "Destination"
+                      }
+                      className="mt-0.5 w-full bg-transparent text-sm font-medium text-gray-800 outline-none placeholder:text-gray-400"
+                    />
+                  </div>
+                </div>
+
+                {/* Search Button */}
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  className="flex min-h-14 items-center justify-center gap-2 rounded-xl bg-secondary px-8 text-sm font-semibold text-white transition hover:brightness-95"
+                >
+                  <Search className="h-4 w-4" />
+                  Search
+                </button>
               </div>
             </div>
-
-            <div className="my-5 border-t border-dashed border-primary/15" />
-
-            <div className="grid grid-cols-4 gap-2 text-center">
-              <div>
-                <p className="text-[10px] uppercase text-primary/40">Dep</p>
-                <p className="text-xs font-semibold text-primary">06:45</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase text-primary/40">Arr</p>
-                <p className="text-xs font-semibold text-primary">08:55</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase text-primary/40">Gate</p>
-                <p className="text-xs font-semibold text-primary">12</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase text-primary/40">Seat</p>
-                <p className="text-xs font-semibold text-primary">14A</p>
-              </div>
-            </div>
-
-            <div
-              className="mt-5 h-6 w-full rounded-sm opacity-70"
-              style={{
-                background:
-                  "repeating-linear-gradient(90deg, var(--color-primary) 0px, var(--color-primary) 2px, transparent 2px, transparent 5px)",
-              }}
-              aria-hidden="true"
-            />
           </div>
+
+          {/* Current search type */}
+          <p className="mt-4 text-sm text-white/65">
+            Search for{" "}
+            <span className="font-medium text-white">
+              {searchType === "hotels" ? "hotels" : "holiday packages"}
+            </span>{" "}
+            in your preferred destination.
+          </p>
         </div>
       </div>
-
-      <style jsx>{`
-        .fade-up {
-          animation: fadeUp 0.7s ease-out both;
-        }
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .flight-path {
-          stroke-dashoffset: 420;
-          animation: draw 2.2s ease-out 0.5s forwards;
-        }
-        @keyframes draw {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-
-        .boarding-pass-card {
-          animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) rotate(-2deg);
-          }
-          50% {
-            transform: translateY(-14px) rotate(1deg);
-          }
-        }
-
-        .sun-glow {
-          animation: pulse 4.5s ease-in-out infinite;
-        }
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.55;
-          }
-          50% {
-            opacity: 0.85;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .fade-up,
-          .flight-path,
-          .boarding-pass-card,
-          .sun-glow {
-            animation: none !important;
-            opacity: 1 !important;
-            stroke-dashoffset: 0 !important;
-          }
-        }
-      `}</style>
     </section>
-  );
-}
-
-/* ---------- Inline icons (kept local so this file has no extra deps) ---------- */
-
-function PlaneIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M21 3 3 10.5l7.5 3L13.5 21 21 3Z" />
-      <path d="M10.5 13.5 21 3" />
-    </svg>
   );
 }

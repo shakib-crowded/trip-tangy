@@ -1,72 +1,123 @@
 import Hero from "../components/Holidays/Hero";
 import { FeaturedHoliday } from "@/app/components/Holidays/FeaturedHoliday";
 import { ExploreDestinations } from "@/app/components/Holidays/ExploreDestinations";
-import { getAllDestinations } from "@/lib/holidays";
 import { Destinations } from "../components/Holidays/Destinations";
+import { getAllDestinations } from "@/lib/holidays";
 
 export default function HolidaysPage() {
-  const exploreDestinations = getAllDestinations().filter(
-    (d) => d.explore === true,
+  const destinations = getAllDestinations();
+
+  const exploreDestinations = destinations.filter(
+    (destination) => destination.explore === true,
   );
-  const domesticDestinations = getAllDestinations().filter(
-    (d) => d.country === "India",
+
+  const domesticDestinations = destinations.filter(
+    (destination) => destination.country === "India",
   );
-  const internationalDestinations = getAllDestinations().filter(
-    (d) => d.country !== "India",
+
+  const internationalDestinations = destinations.filter(
+    (destination) => destination.country !== "India",
   );
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero */}
       <Hero />
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-primary mt-2 mb-3">
-            Holidays
-          </h1>
-          <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-            From sun-soaked islands to mountain kingdoms — every package is
-            hand-picked and fully supported by our travel experts.
-          </p>
-        </div>
 
-        <FeaturedHoliday />
+      {/* Main Content */}
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-10 lg:py-16">
+        {/* Featured Holiday */}
+        <section>
+          <SectionHeader
+            eyebrow="TRIP TANGY PICKS"
+            title="Featured Holiday"
+            description="A hand-picked experience for your next getaway."
+          />
 
-        <div className="mt-16">
-          <div className="flex items-end justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Explore Destinations
-            </h2>
-            <p className="text-xs text-gray-400">
-              {exploreDestinations.length} destinations
-            </p>
-          </div>
+          <FeaturedHoliday />
+        </section>
+
+        {/* Explore Destinations */}
+        <section className="mt-16 lg:mt-20">
+          <SectionHeader
+            eyebrow="EXPLORE"
+            title="Where do you want to go?"
+            description="Discover destinations worth adding to your next trip."
+            count={exploreDestinations.length}
+            countLabel="destinations"
+          />
+
           <ExploreDestinations destinations={exploreDestinations} />
-        </div>
+        </section>
 
-        <div className="mt-16">
-          <div className="flex items-end justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              International Destinations
-            </h2>
-            <p className="text-xs text-gray-400">
-              {internationalDestinations.length} destinations
-            </p>
-          </div>
+        {/* International */}
+        <section className="mt-16 lg:mt-20">
+          <SectionHeader
+            eyebrow="INTERNATIONAL"
+            title="Go beyond borders"
+            description="Explore international destinations and discover something new."
+            count={internationalDestinations.length}
+            countLabel="destinations"
+          />
+
           <Destinations destinations={internationalDestinations} />
-        </div>
+        </section>
 
-        <div className="mt-16">
-          <div className="flex items-end justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Domestic Destinations
-            </h2>
-            <p className="text-xs text-gray-400">
-              {domesticDestinations.length} destinations
-            </p>
-          </div>
+        {/* Domestic */}
+        <section className="mt-16 lg:mt-20">
+          <SectionHeader
+            eyebrow="INDIA"
+            title="Discover India"
+            description="From mountains and beaches to culture and adventure."
+            count={domesticDestinations.length}
+            countLabel="destinations"
+          />
+
           <Destinations destinations={domesticDestinations} />
-        </div>
+        </section>
       </div>
+    </main>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Section Header                                                             */
+/* -------------------------------------------------------------------------- */
+
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  count,
+  countLabel,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  count?: number;
+  countLabel?: string;
+}) {
+  return (
+    <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary">
+          {eyebrow}
+        </p>
+
+        <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+          {title}
+        </h2>
+
+        <p className="mt-2 max-w-xl text-sm leading-6 text-gray-500">
+          {description}
+        </p>
+      </div>
+
+      {typeof count === "number" && (
+        <p className="shrink-0 text-xs font-medium text-gray-400">
+          {count} {countLabel}
+        </p>
+      )}
     </div>
   );
 }

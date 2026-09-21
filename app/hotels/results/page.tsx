@@ -9,21 +9,24 @@ function escapeRegex(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-type SearchParams = Promise<{ q?: string; sort?: string }>;
+type SearchParams = Promise<{ destination?: string; sort?: string }>;
 
 export default async function HotelResultsPage({
   searchParams,
 }: {
   searchParams: SearchParams;
 }) {
-  const { q = "", sort = "relevance" } = await searchParams;
+  const { destination = "", sort = "relevance" } = await searchParams;
 
   await connectDB();
 
   const filter: Record<string, unknown> = { isActive: true };
-  if (q.trim()) {
-    const safe = escapeRegex(q.trim());
-    filter.$or = [{ name: new RegExp(safe, "i") }, { city: new RegExp(safe, "i") }];
+  if (destination.trim()) {
+    const safe = escapeRegex(destination.trim());
+    filter.$or = [
+      { name: new RegExp(safe, "i") },
+      { city: new RegExp(safe, "i") },
+    ];
   }
 
   const hotels = (await Hotel.find(filter)
@@ -45,7 +48,7 @@ export default async function HotelResultsPage({
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="font-(family-name:--font-display) text-2xl font-semibold text-primary">
-            {q ? `Stays for "${q}"` : "All stays"}
+            {destination ? `Stays for "${destination}"` : "All stays"}
           </h1>
           <p className="mt-1 text-sm text-primary/50">
             {sorted.length} hotel{sorted.length === 1 ? "" : "s"} found
