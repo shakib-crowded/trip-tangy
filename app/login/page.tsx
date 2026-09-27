@@ -1,7 +1,20 @@
 // app/booking/login/page.tsx
 
+import { Metadata } from "next";
 import { Suspense } from "react";
 import LoginPage from "./LoginPage";
+
+export const metadata: Metadata = {
+  title: "Log In",
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 export default function LoginPageRoute() {
   return (

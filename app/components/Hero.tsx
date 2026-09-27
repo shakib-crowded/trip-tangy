@@ -16,7 +16,7 @@ export function Hero() {
     const basePath =
       searchType === "hotels"
         ? "/hotels/results"
-        : "/holidays/search";
+        : "/holidays/results";
 
     const query = destination.trim()
       ? `?destination=${encodeURIComponent(destination.trim())}`

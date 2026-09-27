@@ -1,7 +1,20 @@
 // app/hotels/[slug]/book/page.tsx
 
+import { Metadata } from "next";
 import { Suspense } from "react";
 import BookRoomPage from "./BookRoomPage";
+
+export const metadata: Metadata = {
+  title: "Complete Your Booking",
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 export default function BookRoomPageRoute() {
   return (

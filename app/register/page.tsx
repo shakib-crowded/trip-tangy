@@ -1,7 +1,20 @@
-// app/register/RegisterPage.tsx
+// app/register/page.tsx
 
+import { Metadata } from "next";
 import { Suspense } from "react";
 import RegisterPage from "./RegisterPage";
+
+export const metadata: Metadata = {
+  title: "Create an Account",
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 export default function RegisterPageRoute() {
   return (

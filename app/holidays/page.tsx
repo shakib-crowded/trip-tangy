@@ -1,8 +1,37 @@
+import { Metadata } from "next";
 import Hero from "../components/Holidays/Hero";
 import { FeaturedHoliday } from "@/app/components/Holidays/FeaturedHoliday";
 import { ExploreDestinations } from "@/app/components/Holidays/ExploreDestinations";
 import { Destinations } from "../components/Holidays/Destinations";
 import { getAllDestinations } from "@/lib/holidays";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const destinations = getAllDestinations();
+  const domesticCount = destinations.filter((d) => d.country === "India").length;
+  const intlCount = destinations.filter((d) => d.country !== "India").length;
+
+  const title = "Holiday Packages | Domestic & International Tours";
+  const description = `Browse ${domesticCount} domestic and ${intlCount} international holiday packages with Trip Tangy. Handpicked getaways across India and abroad, with flexible itineraries and expert planning.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: "/holidays" },
+    openGraph: {
+      title,
+      description,
+      url: "/holidays",
+      siteName: "Trip Tangy",
+      type: "website",
+      locale: "en_IN",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default function HolidaysPage() {
   const destinations = getAllDestinations();
@@ -18,6 +47,26 @@ export default function HolidaysPage() {
   const internationalDestinations = destinations.filter(
     (destination) => destination.country !== "India",
   );
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.triptangy.com" },
+      { "@type": "ListItem", position: 2, name: "Holidays", item: "https://www.triptangy.com/holidays" },
+    ],
+  };
+  
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: destinations.slice(0, 30).map((d: any, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: d.name,
+      ...(d.slug && { url: `https://www.triptangy.com/holidays/${d.slug}` }),
+    })),
+  };
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -76,13 +125,19 @@ export default function HolidaysPage() {
           <Destinations destinations={domesticDestinations} />
         </section>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
     </main>
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* Section Header                                                             */
-/* -------------------------------------------------------------------------- */
 
 function SectionHeader({
   eyebrow,

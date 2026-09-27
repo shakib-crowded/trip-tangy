@@ -1,4 +1,5 @@
 // app/booking/confirmation/page.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import {
@@ -13,6 +14,18 @@ import { getServerUser } from "@/lib/auth-server";
 import { connectDB } from "@/lib/mongodb";
 import HotelBooking from "@/models/HotelBooking";
 import PrintButton from "./PrintButton";
+
+export const metadata: Metadata = {
+  title: "Booking Confirmation | Trip Tangy",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 function formatDate(date: Date) {
   return new Date(date).toLocaleDateString("en-IN", {

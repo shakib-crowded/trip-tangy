@@ -27,12 +27,35 @@ export async function generateMetadata({
 
   if (!result) return {};
 
+  const { pkg, destination: dest } = result;
+  const title = `${pkg.title} | ${pkg.duration.nights}N/${pkg.duration.days}D`;
+  const description = `${pkg.duration.nights}N/${pkg.duration.days}D ${dest.name} package starting at ${formatPrice(
+    pkg.price,
+    pkg.currency
+  )}. Includes ${pkg.inclusions.slice(0, 2).join(", ")}${pkg.inclusions.length > 2 ? " and more" : ""}.`;
+  const canonicalPath = `/holidays/${dest.slug}/${pkg.slug}`;
+
   return {
-    title: `${result.pkg.title} | Trip Tangy`,
-    description: `${result.pkg.duration.nights}N/${result.pkg.duration.days}D package in ${result.destination.name}. Starting at ${formatPrice(
-      result.pkg.price,
-      result.pkg.currency
-    )}.`,
+    title,
+    description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      siteName: "Trip Tangy",
+      type: "website",
+      locale: "en_IN",
+      images: pkg.images?.[0]
+        ? [{ url: pkg.images[0], width: 1200, height: 630, alt: pkg.title }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: pkg.images?.[0] ? [pkg.images[0]] : undefined,
+    },
   };
 }
 
@@ -63,6 +86,56 @@ export default async function PackagePage({
   const otherPackages = destination.packages
     .filter((p) => p.slug !== pkg.slug)
     .slice(0, 2);
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.triptangy.com" },
+      { "@type": "ListItem", position: 2, name: "Holidays", item: "https://www.triptangy.com/holidays" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: destination.name,
+        item: `https://www.triptangy.com/holidays/${destination.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: pkg.title,
+        item: `https://www.triptangy.com/holidays/${destination.slug}/${pkg.slug}`,
+      },
+    ],
+  };
+
+  // TouristTrip + Offer is the closest schema.org fit for a fixed-itinerary,
+  // fixed-price holiday package (this is what can make it eligible for
+  // price/availability rich results). Add aggregateRating here once you're
+  // collecting reviews — don't fabricate one in the meantime.
+  const packageSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    name: pkg.title,
+    description: destination.description,
+    image: pkg.images,
+    touristType: pkg.groupType,
+    itinerary: {
+      "@type": "ItemList",
+      itemListElement: pkg.itinerary.map((day) => ({
+        "@type": "ListItem",
+        position: day.day,
+        name: day.title,
+        description: day.description,
+      })),
+    },
+    offers: {
+      "@type": "Offer",
+      price: pkg.price,
+      priceCurrency: pkg.currency,
+      availability: "https://schema.org/InStock",
+      url: `https://www.triptangy.com/holidays/${destination.slug}/${pkg.slug}`,
+    },
+  };
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -388,6 +461,15 @@ export default async function PackagePage({
          <BookingSidebar pkg={pkg} destination={destination} discount={discount}/>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(packageSchema) }}
+      />
     </main>
   );
 }

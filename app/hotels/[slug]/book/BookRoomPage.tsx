@@ -1,4 +1,4 @@
-// app/hotels/[slug]/book/page.tsx
+// app/hotels/[slug]/book/BookRoomPage.tsx
 
 "use client";
 

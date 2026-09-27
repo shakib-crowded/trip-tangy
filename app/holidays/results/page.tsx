@@ -1,17 +1,47 @@
+// app/holidays/results/page.tsx
+
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { searchDestinations, formatPrice } from "@/lib/holidays";
 
-export const metadata: Metadata = {
-  title: "Search Holidays | Trip Tangy",
-  description: "Find the perfect holiday package for your next trip.",
-};
+type SearchParams = Promise<{ destination?: string }>;
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}): Promise<Metadata> {
+  const { destination: rawQuery } = await searchParams;
+  const query = rawQuery?.trim().slice(0, 60) ?? "";
+
+  if (!query) {
+    return {
+      title: "Search Holidays",
+      description: "Find the perfect holiday package for your next trip.",
+      alternates: { canonical: "/holidays" },
+      robots: { index: false, follow: true },
+    };
+  }
+
+  const results = searchDestinations(query);
+  const title = `${query} Holiday Packages`;
+  const description = results.length
+    ? `${results.length} holiday destination${results.length !== 1 ? "s" : ""} matching "${query}", with packages, pricing, and itineraries.`
+    : `No destinations matched "${query}". Browse all Trip Tangy holiday packages instead.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/holidays/search?destination=${encodeURIComponent(query)}` },
+    robots: { index: results.length > 0, follow: true },
+  };
+}
 
 export default async function HolidaySearchPage({
   searchParams,
 }: {
-  searchParams: Promise<{ destination?: string }>;
+  searchParams: SearchParams;
 }) {
   const { destination: rawQuery } = await searchParams;
   const query = rawQuery?.trim() ?? "";

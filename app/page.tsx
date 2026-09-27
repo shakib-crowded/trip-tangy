@@ -1,60 +1,57 @@
+// app/page.tsx
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import { Hero } from "./components/Hero";
 import PopularDestinations from "./components/Home/PopularDestinations";
 import WhyChooseTT from "./components/Home/WhyChooseTT";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.triptangy.com"),
-  title: "Best Travel Website | Trip Tangy",
+  title: "Best Travel Website in India | Trip Tangy",
   description:
-    "Trip Tangy is your go-to destination for the best travel experiences which has a hotel booking option..",
+    "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Best Travel Website | Trip Tangy",
+    title: "Best Travel Website in India | Trip Tangy",
     description:
-      "Trip Tangy is your go-to destination for the best travel experiences which has a hotel booking option..",
+      "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
     url: "https://www.triptangy.com",
     siteName: "Trip Tangy",
     type: "website",
+    locale: "en_IN",
     images: [
       {
-        url: "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789988475/logo.png",
-        width: 666,
-        height: 335,
-        alt: "Trip Tangy - Best Travel Website",
+        url: "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1790052130/og_image.png",
+        width: 1200,
+        height: 630,
+        alt: "Trip Tangy - Best Travel Website in India",
       },
     ],
-    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Travel Website | Trip Tangy",
+    title: "Best Travel Website in India | Trip Tangy",
     description:
-      "Trip Tangy is your go-to destination for the best travel experiences which has a hotel booking option..",
+      "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
     images: [
-      "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789988475/logo.png",
+      "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1790052130/og_image.png",
     ],
     creator: "@triptangy",
     site: "@triptangy",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.triptangy.com",
     },
-  },
-  category: "travel",
-  classification: "Travel Agency",
-  referrer: "origin-when-cross-origin",
-  authors: [{ name: "Trip Tangy" }],
-  publisher: "Trip Tangy",
+  ],
 };
 
 export default function Page() {
@@ -64,6 +61,11 @@ export default function Page() {
       <Hero />
       <PopularDestinations />
       <WhyChooseTT />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     </>
   );
 }

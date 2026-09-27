@@ -26,9 +26,33 @@ export async function generateMetadata({
 
   if (!destination) return {};
 
+  const title = `${destination.name} Holiday Packages`;
+  const description = destination.description.length > 155
+    ? `${destination.description.slice(0, 152)}...`
+    : destination.description;
+  const canonicalPath = `/holidays/${destination.slug}`;
+
   return {
-    title: `${destination.name} Holiday Packages | Trip Tangy`,
-    description: destination.description,
+    title,
+    description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      siteName: "Trip Tangy",
+      type: "website",
+      locale: "en_IN",
+      images: destination.heroImage
+        ? [{ url: destination.heroImage, width: 1200, height: 630, alt: destination.name }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: destination.heroImage ? [destination.heroImage] : undefined,
+    },
   };
 }
 
@@ -63,10 +87,59 @@ export default async function DestinationPage({
     { min: Infinity, max: 0 }
   );
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.triptangy.com" },
+      { "@type": "ListItem", position: 2, name: "Holidays", item: "https://www.triptangy.com/holidays" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: destination.name,
+        item: `https://www.triptangy.com/holidays/${destination.slug}`,
+      },
+    ],
+  };
+
+  const destinationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: destination.name,
+    description: destination.description,
+    image: destination.heroImage,
+    touristType: destination.highlights,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: destination.country,
+    },
+  };
+
+  const packagesItemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: destination.packages.map((pkg, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "TouristTrip",
+        name: pkg.title,
+        url: `https://www.triptangy.com/holidays/${destination.slug}/${pkg.slug}`,
+        image: pkg.images?.[0],
+        offers: {
+          "@type": "Offer",
+          price: pkg.price,
+          priceCurrency: pkg.currency,
+          availability: "https://schema.org/InStock",
+        },
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="relative h-[500px] md:h-[580px] w-full overflow-hidden">
+      <section className="relative h-125 md:h-145 w-full overflow-hidden">
         <Image
           src={destination.heroImage}
           alt={`${destination.name} holiday destination`}
@@ -76,7 +149,7 @@ export default async function DestinationPage({
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/35 to-black/10" />
 
         <div className="absolute inset-x-0 bottom-0">
           <div className="container mx-auto max-w-6xl px-4 pb-12 md:pb-16">
@@ -334,6 +407,19 @@ export default async function DestinationPage({
           </div>
         </section>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(destinationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(packagesItemListSchema) }}
+      />
     </main>
   );
 }

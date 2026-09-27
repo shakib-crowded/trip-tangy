@@ -10,7 +10,7 @@ export const siteConfig = {
   social: {
     instagram: "https://instagram.com/triptangy",
     facebook: "https://facebook.com/triptangy",
-    youtube: "https://youtube.com/triptangy",
+    youtube: "https://youtube.com/@triptangy",
     linkedin: "https://linkedin.com/company/triptangy",
     x: "https://x.com/triptangy", 
     pinterest: "https://pinterest.com/triptangy", 
