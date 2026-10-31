@@ -1,6 +1,4 @@
 // app/admin/users/page.tsx
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -10,26 +8,8 @@ import {
   ShieldOff,
   User as UserIcon,
 } from "lucide-react";
-import { verifyAccessToken } from "@/lib/jwt";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
-
-async function getAdminSession() {
-  const cookieStore = await cookies();
-  const accessToken = cookieStore.get("accessToken")?.value;
-  if (!accessToken) return null;
-
-  try {
-    const payload = await verifyAccessToken(accessToken);
-    await connectDB();
-    const dbUser = await User.findById(payload.userId).select("isAdmin name");
-    if (!dbUser?.isAdmin) return null;
-
-    return { userId: payload.userId, name: dbUser.name };
-  } catch {
-    return null;
-  }
-}
 
 async function getUsers() {
   await connectDB();
@@ -58,11 +38,6 @@ function formatDate(date: Date | string) {
 }
 
 export default async function AdminUsersPage() {
-  const session = await getAdminSession();
-  if (!session) {
-    redirect("/");
-  }
-
   const users = await getUsers();
 
   return (

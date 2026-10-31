@@ -1,14 +1,16 @@
 // app/admin/dashboard/hotels/[id]/edit/page.tsx
 import { notFound } from "next/navigation";
 import { Pencil } from "lucide-react";
+import { Types, isValidObjectId } from "mongoose";
 import { connectDB } from "@/lib/mongodb";
-import Hotel from "@/models/Hotel";
+import Hotel, { type IRoom } from "@/models/Hotel";
 import HotelForm from "@/app/components/Admin/HotelForm";
 
 type Params = { params: Promise<{ id: string }> };
 
 export default async function EditHotelPage({ params }: Params) {
   const { id } = await params;
+  if (!isValidObjectId(id)) notFound();
 
   await connectDB();
   const hotel = await Hotel.findById(id).lean();
@@ -24,20 +26,19 @@ export default async function EditHotelPage({ params }: Params) {
     amenities: hotel.amenities ?? [],
     images: hotel.images ?? [],
     policies: hotel.policies,
-    rooms: (hotel.rooms ?? []).map((r: any) => ({
-      id: r._id?.toString() ?? crypto.randomUUID(),
-      roomType: r.roomType,
-      description: r.description ?? "",
-      maxOccupancy: r.maxOccupancy,
-      maxAdults: r.maxAdults ?? 1, 
-      maxChildren: r.maxChildren ?? 0,
-      basePrice: r.basePrice,
-      totalRooms: r.totalRooms,
-      amenities: r.amenities ?? [],
-      images: r.images ?? [],
+    rooms: (hotel.rooms ?? []).map((room: IRoom & { _id?: Types.ObjectId }) => ({
+      id: room._id?.toString() ?? crypto.randomUUID(),
+      roomType: room.roomType,
+      description: room.description ?? "",
+      maxOccupancy: room.maxOccupancy,
+      maxAdults: room.maxAdults ?? 1,
+      maxChildren: room.maxChildren ?? 0,
+      basePrice: room.basePrice,
+      totalRooms: room.totalRooms,
+      amenities: room.amenities ?? [],
+      images: room.images ?? [],
     })),
   };
-
 
   return (
     <div className="container mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">

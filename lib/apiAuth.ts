@@ -18,17 +18,19 @@ export async function requireAdmin(req: NextRequest): Promise<AdminAuthResult> {
     return { error: NextResponse.json({ message: "Unauthorized" }, { status: 401 }) };
   }
 
+  let userId: string;
   try {
     const payload = await verifyAccessToken(accessToken);
-
-    await connectDB();
-    const dbUser = await User.findById(payload.userId).select("isAdmin");
-    if (!dbUser?.isAdmin) {
-      return { error: NextResponse.json({ message: "Forbidden" }, { status: 403 }) };
-    }
-
-    return { userId: payload.userId };
+    userId = payload.userId;
   } catch {
     return { error: NextResponse.json({ message: "Unauthorized" }, { status: 401 }) };
   }
+
+  await connectDB();
+  const dbUser = await User.findById(userId).select("isAdmin");
+  if (!dbUser?.isAdmin) {
+    return { error: NextResponse.json({ message: "Forbidden" }, { status: 403 }) };
+  }
+
+  return { userId };
 }

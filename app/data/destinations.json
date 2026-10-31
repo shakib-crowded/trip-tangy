@@ -70,7 +70,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Couple", "Friends", "Family"]
+          "groupType": ["Couple", "Friends", "Family"],
+          "featured": true
         },
         {
           "slug": "goa-luxury-retreat-4n5d",
@@ -127,7 +128,8 @@
             }
           ],
           "hotelCategory": "5-star",
-          "groupType": ["Couple", "Honeymoon"]
+          "groupType": ["Couple", "Honeymoon"],
+          "featured": false
         }
       ]
     },
@@ -206,7 +208,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Family", "Friends", "Couple"]
+          "groupType": ["Family", "Friends", "Couple"],
+          "featured": false
         },
         {
           "slug": "manali-adventure-expedition-5n6d",
@@ -268,7 +271,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Friends", "Adventure Enthusiasts"]
+          "groupType": ["Friends", "Adventure Enthusiasts"],
+          "featured": false
         }
       ]
     },
@@ -422,7 +426,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Family", "Friends", "Couple"]
+          "groupType": ["Family", "Friends", "Couple"],
+          "featured": false
         }
       ]
     },
@@ -496,7 +501,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Family", "Couple", "Solo"]
+          "groupType": ["Family", "Couple", "Solo"],
+          "featured": false
         }
       ]
     },
@@ -570,7 +576,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Family", "Friends", "Couple"]
+          "groupType": ["Family", "Friends", "Couple"],
+          "featured": false
         }
       ]
     },
@@ -644,7 +651,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Couple", "Honeymoon", "Family"]
+          "groupType": ["Couple", "Honeymoon", "Family"],
+          "featured": false
         }
       ]
     },
@@ -713,7 +721,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Family", "Couple", "Friends"]
+          "groupType": ["Family", "Couple", "Friends"],
+          "featured": false
         }
       ]
     },
@@ -787,7 +796,8 @@
             }
           ],
           "hotelCategory": "3-star",
-          "groupType": ["Solo", "Friends", "Couple"]
+          "groupType": ["Solo", "Friends", "Couple"],
+          "featured": false
         }
       ]
     },
@@ -869,7 +879,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Couple", "Family", "Friends"]
+          "groupType": ["Couple", "Family", "Friends"],
+          "featured": true
         }
       ]
     },
@@ -948,7 +959,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Couple", "Honeymoon", "Family"]
+          "groupType": ["Couple", "Honeymoon", "Family"],
+          "featured": false
         }
       ]
     },
@@ -1035,7 +1047,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Friends", "Couple", "Family"]
+          "groupType": ["Friends", "Couple", "Family"],
+          "featured": false
         }
       ]
     },
@@ -1127,7 +1140,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Family", "Couple", "Friends"]
+          "groupType": ["Family", "Couple", "Friends"],
+          "featured": false
         }
       ]
     },
@@ -1224,7 +1238,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Family", "Couple", "Friends"]
+          "groupType": ["Family", "Couple", "Friends"],
+          "featured": false
         }
       ]
     },
@@ -1306,7 +1321,8 @@
             }
           ],
           "hotelCategory": "5-star",
-          "groupType": ["Couple", "Honeymoon", "Family"]
+          "groupType": ["Couple", "Honeymoon", "Family"],
+          "featured": true
         }
       ]
     },
@@ -1388,7 +1404,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Family", "Friends", "Couple"]
+          "groupType": ["Family", "Friends", "Couple"],
+          "featured": false
         }
       ]
     },
@@ -1397,7 +1414,7 @@
       "name": "New Zealand",
       "country": "New Zealand",
       "tagline": "Middle-earth - Snow-capped peaks, fjords, and adventure",
-      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1789031216/new_zealand.webp",
+      "heroImage": "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1793430567/new_zealand.jpg",
       "description": "New Zealand is a breathtaking destination of stunning landscapes, from the fjords of Milford Sound to the snow-capped Southern Alps. Experience the Maori culture, outdoor adventures, and the famous Lord of the Rings filming locations.",
       "startingPrice": 89999,
       "currency": "INR",
@@ -1485,7 +1502,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Couple", "Friends", "Adventure Enthusiasts"]
+          "groupType": ["Couple", "Friends", "Adventure Enthusiasts"],
+          "featured": false
         }
       ]
     },
@@ -1577,7 +1595,8 @@
             }
           ],
           "hotelCategory": "4-star",
-          "groupType": ["Family", "Couple", "Friends"]
+          "groupType": ["Family", "Couple", "Friends"],
+          "featured": false
         }
       ]
     }

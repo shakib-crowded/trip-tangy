@@ -15,6 +15,7 @@ export interface HotelCardData {
   images: string[];
   amenities: string[];
   rooms: { basePrice: number }[];
+  isActive: boolean;
 }
 
 export default function HotelCard({ hotel }: { hotel: HotelCardData }) {
@@ -32,6 +33,7 @@ export default function HotelCard({ hotel }: { hotel: HotelCardData }) {
             src={hotel.images[0]}
             alt={hotel.name}
             fill
+            unoptimized
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />

@@ -81,10 +81,20 @@ export default async function Page({
     .lean()) as unknown as HotelCardData[];
 
   const sorted = [...hotels].sort((a, b) => {
-    const priceA = Math.min(...(a.rooms.map((r) => r.basePrice) || [0]));
-    const priceB = Math.min(...(b.rooms.map((r) => r.basePrice) || [0]));
-    if (sort === "price_asc") return priceA - priceB;
-    if (sort === "price_desc") return priceB - priceA;
+    const priceA = a.rooms.length
+      ? Math.min(...a.rooms.map((room) => room.basePrice))
+      : null;
+    const priceB = b.rooms.length
+      ? Math.min(...b.rooms.map((room) => room.basePrice))
+      : null;
+    if (priceA === null && priceB !== null) return 1;
+    if (priceB === null && priceA !== null) return -1;
+    if (priceA !== null && priceB !== null && sort === "price_asc") {
+      return priceA - priceB;
+    }
+    if (priceA !== null && priceB !== null && sort === "price_desc") {
+      return priceB - priceA;
+    }
     if (sort === "rating") return b.starRating - a.starRating;
     return 0;
   });

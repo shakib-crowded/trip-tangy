@@ -168,7 +168,23 @@ export default function HotelForm({
 
   const addImageUrl = (url: string) => {
     const v = url.trim();
-    if (v) setValues((prev) => ({ ...prev, images: [...prev.images, v] }));
+    if (!v) return;
+
+    try {
+      const parsedUrl = new URL(v);
+      if (parsedUrl.protocol !== "https:") {
+        setError("Hotel photos must use a secure HTTPS link.");
+        return;
+      }
+    } catch {
+      setError("Enter a valid HTTPS link for the hotel photo.");
+      return;
+    }
+
+    setError("");
+    setValues((prev) =>
+      prev.images.includes(v) ? prev : { ...prev, images: [...prev.images, v] },
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -221,7 +237,11 @@ export default function HotelForm({
     try {
       const payload = {
         ...values,
-        rooms: values.rooms.map(({ id, ...rest }) => rest),
+        rooms: values.rooms.map((room) => {
+          const { id, ...roomPayload } = room;
+          void id;
+          return roomPayload;
+        }),
       };
       const res = await fetch(
         mode === "create"
@@ -601,6 +621,7 @@ function ImageUrlList({
                 src={url}
                 alt=""
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
                 onError={(e) => {

@@ -1,10 +1,11 @@
 // app/hotels/[slug]/page.tsx
 
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MapPin, Star, Clock, ShieldCheck } from "lucide-react";
+import { Types } from "mongoose";
 import { connectDB } from "@/lib/mongodb";
-import Hotel from "@/models/Hotel";
+import Hotel, { type IHotel, type IRoom } from "@/models/Hotel";
 import BookingWidget from "@/app/components/Hotels/BookingWidget";
 import Image from "next/image";
 
@@ -12,9 +13,15 @@ type Params = {
   params: Promise<{ slug: string }>;
 };
 
-async function getHotel(slug: string) {
+type HotelPageData = Omit<IHotel, "rooms"> & {
+  rooms: (IRoom & { _id: Types.ObjectId })[];
+};
+
+async function getHotel(slug: string): Promise<HotelPageData | null> {
   await connectDB();
-  return Hotel.findOne({ slug, isActive: true }).select("-createdBy").lean();
+  return Hotel.findOne({ slug, isActive: true })
+    .select("-createdBy")
+    .lean<HotelPageData>();
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -25,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return { title: "Hotel Not Found", robots: { index: false, follow: false } };
   }
 
-  const h = hotel as any;
+  const h = hotel;
   const title = `${h.name}, ${h.city} | Book Now`;
   const description = h.description
     ? h.description.slice(0, 155)
@@ -63,9 +70,9 @@ export default async function Page({ params }: Params) {
 
   if (!hotel) notFound();
 
-  const h = hotel as any;
+  const h = hotel;
 
-  const prices = (h.rooms || []).map((r: any) => r.basePrice).filter(Boolean);
+  const prices = h.rooms.map((room) => room.basePrice).filter(Number.isFinite);
   const minPrice = prices.length ? Math.min(...prices) : undefined;
   const maxPrice = prices.length ? Math.max(...prices) : undefined;
 
@@ -85,12 +92,12 @@ export default async function Page({ params }: Params) {
       "@type": "Rating",
       ratingValue: h.starRating,
     },
-    ...(minPrice && {
+    ...(minPrice !== undefined && {
       priceRange: minPrice === maxPrice ? `₹${minPrice}` : `₹${minPrice} - ₹${maxPrice}`,
     }),
-    amenityFeature: (h.amenities || []).map((a: string) => ({
+    amenityFeature: h.amenities.map((amenity) => ({
       "@type": "LocationFeatureSpecification",
-      name: a,
+      name: amenity,
     })),
     checkinTime: h.policies?.checkIn,
     checkoutTime: h.policies?.checkOut,
@@ -129,6 +136,7 @@ export default async function Page({ params }: Params) {
                 src={h.images[0]}
                 alt={`${h.name} in ${h.city}`}
                 fill
+                unoptimized
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-cover"
                 priority
@@ -141,12 +149,13 @@ export default async function Page({ params }: Params) {
           </div>
 
           {/* Secondary images */}
-          {h.images.slice(1, 5).map((src: string, index: number) => (
+          {h.images.slice(1, 5).map((src, index) => (
             <div key={`${src}-${index}`} className="relative hidden bg-gray-100 sm:block">
               <Image
                 src={src}
                 alt={`${h.name} - view ${index + 2}`}
                 fill
+                unoptimized
                 sizes="(max-width: 640px) 0px, 25vw"
                 className="object-cover"
               />
@@ -190,12 +199,12 @@ export default async function Page({ params }: Params) {
             </div>
 
             {/* Amenities */}
-            {h.amenities.length > 0 && (
+            {h.amenities?.length > 0 && (
               <section className="border-b border-gray-100 py-7">
                 <h2 className="text-lg font-semibold text-gray-900">Amenities</h2>
 
                 <div className="mt-4 grid grid-cols-2 gap-y-3 sm:grid-cols-3">
-                  {h.amenities.map((amenity: string) => (
+                  {h.amenities.map((amenity) => (
                     <div key={amenity} className="text-sm text-gray-600">
                       {amenity}
                     </div>
@@ -246,7 +255,7 @@ export default async function Page({ params }: Params) {
             <BookingWidget
               hotelId={h._id.toString()}
               hotelSlug={h.slug}
-              rooms={h.rooms.map((room: any) => ({
+              rooms={h.rooms.map((room) => ({
                 _id: room._id.toString(),
                 roomType: room.roomType,
                 description: room.description,

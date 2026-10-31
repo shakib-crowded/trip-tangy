@@ -18,16 +18,32 @@ export async function GET(req: NextRequest) {
   if (auth.error) return auth.error;
 
   const { searchParams } = req.nextUrl;
-  const page = Math.max(1, Number(searchParams.get("page") ?? 1));
-  const limit = Math.min(50, Number(searchParams.get("limit") ?? 20));
+  const requestedPage = Number(searchParams.get("page") ?? 1);
+  const requestedLimit = Number(searchParams.get("limit") ?? 20);
+  const page =
+    Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  const limit =
+    Number.isInteger(requestedLimit) && requestedLimit > 0
+      ? Math.min(50, requestedLimit)
+      : 20;
+  const search = searchParams.get("search")?.trim();
+  const escapedSearch = search?.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const filter = escapedSearch
+    ? {
+        $or: [
+          { name: { $regex: escapedSearch, $options: "i" } },
+          { city: { $regex: escapedSearch, $options: "i" } },
+        ],
+      }
+    : {};
 
   await connectDB();
   const [hotels, total] = await Promise.all([
-    Hotel.find({})
+    Hotel.find(filter)
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit),
-    Hotel.countDocuments({}),
+    Hotel.countDocuments(filter),
   ]);
 
   return NextResponse.json({
@@ -41,7 +57,6 @@ export async function GET(req: NextRequest) {
 // POST /api/admin/hotels — create a new hotel listing.
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin(req);
-  console.log("Admin auth result:", auth);
   if (auth.error) return auth.error;
 
   try {

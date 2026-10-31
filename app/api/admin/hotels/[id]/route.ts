@@ -1,5 +1,6 @@
 // app/api/admin/hotels/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
+import { isValidObjectId } from "mongoose";
 import { connectDB } from "@/lib/mongodb";
 import Hotel from "@/models/Hotel";
 import { requireAdmin } from "@/lib/apiAuth";
@@ -12,6 +13,9 @@ export async function GET(req: NextRequest, { params }: Params) {
   if (auth.error) return auth.error;
 
   const { id } = await params;
+  if (!isValidObjectId(id)) {
+    return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
+  }
   await connectDB();
   const hotel = await Hotel.findById(id);
   if (!hotel) return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
@@ -25,6 +29,9 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   if (auth.error) return auth.error;
 
   const { id } = await params;
+  if (!isValidObjectId(id)) {
+    return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
+  }
 
   try {
     const body = await req.json();
@@ -53,6 +60,9 @@ export async function DELETE(req: NextRequest, { params }: Params) {
   if (auth.error) return auth.error;
 
   const { id } = await params;
+  if (!isValidObjectId(id)) {
+    return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
+  }
   await connectDB();
   const hotel = await Hotel.findByIdAndUpdate(id, { isActive: false }, { new: true });
   if (!hotel) return NextResponse.json({ message: "Hotel not found" }, { status: 404 });

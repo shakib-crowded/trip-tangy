@@ -16,7 +16,7 @@ export default function ResultsSortBar() {
 
   return (
     <select
-      defaultValue={searchParams.get("sort") ?? "relevance"}
+      value={searchParams.get("sort") ?? "relevance"}
       onChange={(e) => handleSort(e.target.value)}
       className="rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-medium text-primary outline-none focus:border-secondary/50"
     >

@@ -1,20 +1,24 @@
 // app/page.tsx
-import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
 import PopularDestinations from "./components/Home/PopularDestinations";
 import WhyChooseTT from "./components/Home/WhyChooseTT";
+import BookingOptions from "./components/Home/BookingOptions";
+import PlanningSteps from "./components/Home/PlanningSteps";
+import FrequentlyAskedQuestions from "./components/Home/FrequentlyAskedQuestions";
+import ContactCta from "./components/Home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Best Travel Website in India | Trip Tangy",
+  title: "Hotel Booking in India | Trip Tangy",
   description:
-    "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
+    "Discover hotels across India, compare nightly prices and room options, and book your next stay with Trip Tangy.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Best Travel Website in India | Trip Tangy",
+    title: "Hotel Booking in India | Trip Tangy",
     description:
-      "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
+      "Discover hotels across India, compare nightly prices and room options, and book your next stay with Trip Tangy.",
     url: "https://www.triptangy.com",
     siteName: "Trip Tangy",
     type: "website",
@@ -30,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Travel Website in India | Trip Tangy",
+    title: "Hotel Booking in India | Trip Tangy",
     description:
-      "Book flights, hotels, and holiday packages across India with Trip Tangy. Compare prices, get personalized picks from our AI trip planner, and book in minutes.",
+      "Discover hotels across India, compare nightly prices and room options, and book your next stay with Trip Tangy.",
     images: [
       "https://res.cloudinary.com/qbhq0l88/image/upload/q_auto/f_auto/v1790052130/og_image.png",
     ],
@@ -57,10 +61,13 @@ const breadcrumbSchema = {
 export default function Page() {
   return (
     <>
-      {/* Hero Section */}
       <Hero />
+      <BookingOptions />
       <PopularDestinations />
+      <PlanningSteps />
       <WhyChooseTT />
+      <FrequentlyAskedQuestions />
+      <ContactCta />
 
       <script
         type="application/ld+json"

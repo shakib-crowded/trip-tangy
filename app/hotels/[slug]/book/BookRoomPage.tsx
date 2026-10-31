@@ -641,6 +641,7 @@ export default function BookRoomPage() {
                       src={hotel.images[0]}
                       alt={hotel.name}
                       fill
+                      unoptimized
                       sizes="(max-width: 640px) 80px, 96px"
                       className="object-cover"
                     />
@@ -1072,6 +1073,7 @@ export default function BookRoomPage() {
                         src={hotel.images[0]}
                         alt={hotel.name}
                         fill
+                        unoptimized
                         sizes="56px"
                         className="object-cover"
                       />

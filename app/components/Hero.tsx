@@ -52,15 +52,16 @@ export function Hero() {
           </p>
 
           {/* Heading */}
-          <h1 className="font-(family-name:--font-display) text-5xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[4.8rem]">
+          <h1 className="font-(family-name:--font-display) text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[4.8rem]">
             Stay somewhere
             <br />
             <span className="text-secondary">worth staying for.</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
-            Discover comfortable stays and thoughtfully planned holidays
-            across India and beyond.
+            Find your next stay, compare room options, and book a place that
+            feels right for your trip. Explore holiday packages when you want
+            the whole journey planned.
           </p>
         </div>
 

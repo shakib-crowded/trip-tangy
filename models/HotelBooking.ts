@@ -33,6 +33,7 @@ export interface IHotelBooking {
   }[];
   status: "pending" | "confirmed" | "cancelled" | "completed";
   paymentStatus: "pending" | "paid" | "failed";
+  specialRequests?: string;
   paymentId?: string;
   bookingRef: string;
   expiresAt?: Date;
@@ -95,6 +96,7 @@ const HotelBookingSchema = new Schema<IHotelBooking>(
       default: "pending",
     },
     paymentId: { type: String },
+    specialRequests: { type: String, trim: true, maxlength: 2000 },
     bookingRef: { type: String, required: true, unique: true },
     // Payment hold window. Unset once a booking is confirmed so the TTL
     // index never deletes a paid booking.
@@ -106,7 +108,6 @@ const HotelBookingSchema = new Schema<IHotelBooking>(
 // Indexes for faster queries
 HotelBookingSchema.index({ userId: 1, status: 1 });
 HotelBookingSchema.index({ hotelId: 1, checkIn: 1, checkOut: 1 });
-HotelBookingSchema.index({ bookingRef: 1 });
 // Auto-delete abandoned pending holds once expiresAt passes. Confirmed
 // bookings have expiresAt unset, so they're never touched by this.
 HotelBookingSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });

@@ -50,11 +50,6 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setIsMenuOpen(false);
-    setIsUserMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
         userMenuRef.current &&
@@ -83,11 +78,18 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex items-center gap-6 lg:gap-10">
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-3">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-3"
+            onClick={() => {
+              setIsMenuOpen(false);
+              setIsUserMenuOpen(false);
+            }}
+          >
             <div className="relative h-9 w-32 sm:h-10 sm:w-36 lg:h-12 lg:w-40">
               <Image
                 src="/logo.png"
-                alt="API"
+                alt="Trip Tangy"
                 fill
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
                 className="object-contain"
@@ -107,6 +109,10 @@ export default function Header() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsUserMenuOpen(false);
+                      }}
                       className={`group flex items-center gap-2 rounded-full px-4 py-2 text-[15px] font-semibold transition xl:text-base ${
                         isActive
                           ? "bg-secondary/10 text-secondary"
@@ -139,6 +145,10 @@ export default function Header() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsUserMenuOpen(false);
+                      }}
                       className={`group flex items-center gap-2 rounded-full px-4 py-2 text-[15px] font-semibold transition xl:text-base ${
                         isActive
                           ? "bg-secondary/10 text-secondary"

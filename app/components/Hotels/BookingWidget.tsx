@@ -23,14 +23,27 @@ interface GuestCounts {
   infants: number;
 }
 
+function toLocalISODate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function addDaysISO(value: string, days: number) {
+  const date = new Date(`${value}T00:00:00`);
+  date.setDate(date.getDate() + days);
+  return toLocalISODate(date);
+}
+
 function todayISO() {
-  return new Date().toISOString().slice(0, 10);
+  return toLocalISODate(new Date());
 }
 
 function tomorrowISO() {
   const date = new Date();
   date.setDate(date.getDate() + 1);
-  return date.toISOString().slice(0, 10);
+  return toLocalISODate(date);
 }
 
 export default function BookingWidget({
@@ -121,9 +134,7 @@ export default function BookingWidget({
                 const value = e.target.value;
                 setCheckIn(value);
                 if (value >= checkOut) {
-                  const next = new Date(value);
-                  next.setDate(next.getDate() + 1);
-                  setCheckOut(next.toISOString().slice(0, 10));
+                  setCheckOut(addDaysISO(value, 1));
                 }
               }}
               className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-800 outline-none transition focus:border-secondary"
@@ -136,7 +147,7 @@ export default function BookingWidget({
             <input
               type="date"
               value={checkOut}
-              min={checkIn}
+              min={addDaysISO(checkIn, 1)}
               onChange={(e) => setCheckOut(e.target.value)}
               className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-800 outline-none transition focus:border-secondary"
             />

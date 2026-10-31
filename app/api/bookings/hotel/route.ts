@@ -1,12 +1,34 @@
 // app/api/bookings/hotel/route.ts
 import { NextRequest, NextResponse } from "next/server";
+import { isValidObjectId } from "mongoose";
 import { getServerUser } from "@/lib/auth-server";
 import { connectDB } from "@/lib/mongodb";
-import HotelBooking from "@/models/HotelBooking";
+import HotelBooking, { type IHotelBooking } from "@/models/HotelBooking";
 import Hotel from "@/models/Hotel";
 import User from "@/models/User";
 
 const HOLD_MINUTES = 15;
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isBookingGuest(
+  value: unknown,
+): value is IHotelBooking["guests"][number] {
+  if (!isRecord(value)) return false;
+  return (
+    typeof value.salutation === "string" &&
+    typeof value.firstName === "string" &&
+    typeof value.lastName === "string" &&
+    typeof value.fullName === "string" &&
+    typeof value.isChild === "boolean" &&
+    typeof value.isPrimary === "boolean" &&
+    (value.age === undefined || typeof value.age === "number") &&
+    (value.email === undefined || typeof value.email === "string") &&
+    (value.phone === undefined || typeof value.phone === "string")
+  );
+}
 
 // Generate a unique booking reference
 function generateBookingRef(): string {
@@ -40,46 +62,93 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse request body
-    const body = await request.json();
-
-    // Validate required fields
-    const requiredFields = [
-      "hotelId",
-      "hotelName",
-      "hotelCity",
-      "hotelSlug",
-      "roomId",
-      "roomType",
-      "basePrice",
-      "checkIn",
-      "checkOut",
-      "nights",
-      "adults",
-      "totalGuests",
-      "total",
-      "guests",
-    ];
-
-    for (const field of requiredFields) {
-      if (!body[field]) {
-        return NextResponse.json(
-          { error: `Missing required field: ${field}` },
-          { status: 400 },
-        );
-      }
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid booking request." }, { status: 400 });
+    }
+    if (!isRecord(body)) {
+      return NextResponse.json({ error: "Invalid booking request." }, { status: 400 });
     }
 
+    const { hotelId, roomId, checkIn, checkOut, guests } = body;
+    if (
+      typeof hotelId !== "string" ||
+      !isValidObjectId(hotelId) ||
+      typeof roomId !== "string" ||
+      !isValidObjectId(roomId)
+    ) {
+      return NextResponse.json({ error: "Hotel or room not found." }, { status: 404 });
+    }
+    if (typeof checkIn !== "string" || typeof checkOut !== "string") {
+      return NextResponse.json({ error: "Choose valid check-in and check-out dates." }, { status: 400 });
+    }
+    const isoDate = /^\d{4}-\d{2}-\d{2}$/;
+    if (!isoDate.test(checkIn) || !isoDate.test(checkOut)) {
+      return NextResponse.json({ error: "Choose valid check-in and check-out dates." }, { status: 400 });
+    }
+
+    const checkInDate = new Date(`${checkIn}T00:00:00.000Z`);
+    const checkOutDate = new Date(`${checkOut}T00:00:00.000Z`);
+    const nights = Math.round(
+      (checkOutDate.getTime() - checkInDate.getTime()) / (24 * 60 * 60 * 1000),
+    );
+    if (
+      Number.isNaN(checkInDate.getTime()) ||
+      Number.isNaN(checkOutDate.getTime()) ||
+      nights < 1
+    ) {
+      return NextResponse.json(
+        { error: "Check-out must be after check-in." },
+        { status: 400 },
+      );
+    }
+
+    const adults = body.adults;
+    const children = body.children ?? 0;
+    const infants = body.infants ?? 0;
+    if (
+      typeof adults !== "number" ||
+      !Number.isInteger(adults) ||
+      adults < 1 ||
+      typeof children !== "number" ||
+      !Number.isInteger(children) ||
+      children < 0 ||
+      typeof infants !== "number" ||
+      !Number.isInteger(infants) ||
+      infants < 0
+    ) {
+      return NextResponse.json({ error: "Enter valid guest counts." }, { status: 400 });
+    }
+    const totalGuests = adults + children + infants;
+
     // Validate guests
-    if (!Array.isArray(body.guests) || body.guests.length === 0) {
+    if (!Array.isArray(guests) || guests.length === 0) {
       return NextResponse.json(
         { error: "At least one guest is required." },
         { status: 400 },
       );
     }
+    const bookingGuests = guests.filter(isBookingGuest);
+    if (bookingGuests.length !== guests.length) {
+      return NextResponse.json(
+        { error: "Enter valid information for every guest." },
+        { status: 400 },
+      );
+    }
+    if (
+      bookingGuests.filter((guest) => guest.isChild).length !== children ||
+      bookingGuests.filter((guest) => !guest.isChild).length !== adults
+    ) {
+      return NextResponse.json(
+        { error: "Guest details must match the selected guest counts." },
+        { status: 400 },
+      );
+    }
 
     // Check if primary guest exists
-    const primaryGuest = body.guests.find((g: any) => g.isPrimary);
-    if (!primaryGuest) {
+    if (!bookingGuests.some((guest) => guest.isPrimary)) {
       return NextResponse.json(
         { error: "Primary guest information is required." },
         { status: 400 },
@@ -87,20 +156,28 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate hotel exists
-    const hotel = await Hotel.findById(body.hotelId);
+    const hotel = await Hotel.findOne({ _id: hotelId, isActive: true });
     if (!hotel) {
       return NextResponse.json({ error: "Hotel not found." }, { status: 404 });
     }
 
     // Check if room exists
-    const room = hotel.rooms.id(body.roomId);
+    const room = hotel.rooms.id(roomId);
     if (!room) {
       return NextResponse.json({ error: "Room not found." }, { status: 404 });
     }
+    if (
+      adults > room.maxAdults ||
+      children > room.maxChildren ||
+      totalGuests > room.maxOccupancy
+    ) {
+      return NextResponse.json(
+        { error: "This room cannot accommodate the selected guests." },
+        { status: 400 },
+      );
+    }
 
     // Check room availability for the dates
-    const checkInDate = new Date(body.checkIn);
-    const checkOutDate = new Date(body.checkOut);
     const now = new Date();
 
     // Check for existing bookings that overlap with these dates
@@ -130,24 +207,27 @@ export async function POST(request: NextRequest) {
 
     const booking = await HotelBooking.create({
       userId: user._id,
-      hotelId: body.hotelId,
-      hotelName: body.hotelName,
-      hotelCity: body.hotelCity,
-      hotelImage: body.hotelImage || "",
-      hotelSlug: body.hotelSlug,
-      roomId: body.roomId,
-      roomType: body.roomType,
-      basePrice: body.basePrice,
+      hotelId: hotel._id,
+      hotelName: hotel.name,
+      hotelCity: hotel.city,
+      hotelImage: hotel.images[0] ?? "",
+      hotelSlug: hotel.slug,
+      roomId: room._id,
+      roomType: room.roomType,
+      basePrice: room.basePrice,
       checkIn: checkInDate,
       checkOut: checkOutDate,
-      nights: body.nights,
-      adults: body.adults,
-      children: body.children || 0,
-      infants: body.infants || 0,
-      totalGuests: body.totalGuests,
-      totalAmount: body.total,
-      guests: body.guests,
-      specialRequests: body.specialRequests || "",
+      nights,
+      adults,
+      children,
+      infants,
+      totalGuests,
+      totalAmount: room.basePrice * nights,
+      guests: bookingGuests,
+      specialRequests:
+        typeof body.specialRequests === "string"
+          ? body.specialRequests.trim()
+          : "",
       bookingRef,
       status: "pending",
       paymentStatus: "pending",
@@ -160,12 +240,12 @@ export async function POST(request: NextRequest) {
       await Booking.create({
         userId: user._id,
         type: "hotel",
-        title: `${body.hotelName} - ${body.roomType}`,
-        destination: body.hotelCity,
+        title: `${hotel.name} - ${room.roomType}`,
+        destination: hotel.city,
         startDate: checkInDate,
         endDate: checkOutDate,
         status: "upcoming",
-        amount: body.total,
+        amount: booking.totalAmount,
         bookingRef: bookingRef,
       });
     } catch (err) {
@@ -190,10 +270,15 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 },
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error("Booking creation error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to create booking. Please try again." },
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : "Failed to create booking. Please try again.",
+      },
       { status: 500 },
     );
   }
@@ -217,16 +302,29 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
     const status = searchParams.get("status");
-    const limit = parseInt(searchParams.get("limit") || "10");
-    const page = parseInt(searchParams.get("page") || "1");
+    const requestedLimit = Number(searchParams.get("limit") ?? 10);
+    const requestedPage = Number(searchParams.get("page") ?? 1);
+    const limit =
+      Number.isInteger(requestedLimit) && requestedLimit > 0
+        ? Math.min(requestedLimit, 50)
+        : 10;
+    const page =
+      Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
 
-    const query: any = { userId: user._id };
-    if (
-      status &&
-      ["pending", "confirmed", "cancelled", "completed"].includes(status)
-    ) {
-      query.status = status;
-    }
+    const query: {
+      userId: typeof user._id;
+      status?: IHotelBooking["status"];
+    } = { userId: user._id };
+    const allowedStatuses: IHotelBooking["status"][] = [
+      "pending",
+      "confirmed",
+      "cancelled",
+      "completed",
+    ];
+    const validStatus = allowedStatuses.find(
+      (candidate) => candidate === status,
+    );
+    if (validStatus) query.status = validStatus;
 
     const skip = (page - 1) * limit;
 

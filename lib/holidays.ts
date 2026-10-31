@@ -19,6 +19,8 @@ export interface HolidayPackage {
   itinerary: ItineraryDay[];
   hotelCategory: string;
   groupType: string[];
+  featured: boolean;
+
 }
 
 export interface Destination {
