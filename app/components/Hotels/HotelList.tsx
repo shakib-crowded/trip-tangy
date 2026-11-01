@@ -25,7 +25,9 @@ export default function HotelList() {
           throw new Error(data.message || "Unable to load hotels.");
         }
         if (active) {
-          setHotels((data.hotels ?? []).filter((hotel) => hotel.isActive === true));
+          setHotels(
+            (data.hotels ?? []).filter((hotel) => hotel.isActive === true),
+          );
           setError("");
         }
       } catch (requestError) {
