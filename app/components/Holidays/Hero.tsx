@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { useState } from "react";
+import TravelModeSwitch from "../Common/TravelModeSwitch";
 
 export default function HolidaysHero() {
   const router = useRouter();
@@ -22,91 +23,91 @@ export default function HolidaysHero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-primary font-(family-name:--font-body)">
-      {/* Background */}
+    <section className="relative isolate overflow-hidden bg-primary font-(family-name:--font-body)">
       <div className="absolute inset-0">
         <Image
           src="/holidays_hero.jpg"
-          alt="Beautiful holiday destination"
+          alt=""
           fill
           priority
           className="object-cover"
           sizes="100vw"
         />
-
-        {/* Premium overlay */}
-        <div className="absolute inset-0 bg-black/45" />
-
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-primary/80 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-primary/90 via-primary/65 to-primary/25" />
+        <div className="absolute inset-0 bg-linear-to-t from-primary/65 via-transparent to-black/10" />
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-secondary/20 blur-3xl" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-140 max-w-7xl items-center px-6 py-20 sm:min-h-150 lg:px-10 lg:py-24">
-        <div className="w-full max-w-3xl">
-          {/* Eyebrow */}
-          <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-white/75">
-            Holiday packages
-          </p>
+      <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-5 py-20 sm:min-h-[660px] sm:px-8 lg:px-10 lg:py-24">
+        <div className="w-full">
+          <div className="flex justify-center">
+            <TravelModeSwitch activeMode="holidays" />
+          </div>
 
-          {/* Heading */}
-          <h1 className="font-(family-name:--font-display) text-[2.7rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[4rem]">
-            Find your next
-            <br />
-            <span className="text-secondary">great escape.</span>
-          </h1>
+          <div className="max-w-3xl">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:text-sm">
+              Thoughtfully planned getaways
+            </p>
 
-          {/* Description */}
-          <p className="mt-6 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
-            Explore carefully planned holiday packages across India and
-            around the world.
-          </p>
+            <h1 className="font-(family-name:--font-display) text-[2.7rem] font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[4.5rem]">
+              Find your next
+              <br />
+              <span className="text-sun">great escape.</span>
+            </h1>
 
-          {/* Search */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSearch();
-            }}
-            className="mt-9 max-w-2xl"
-          >
-            <div className="flex flex-col gap-2 rounded-2xl bg-white p-2 shadow-2xl shadow-black/25 sm:flex-row sm:items-center sm:rounded-full">
-              {/* Destination */}
-              <div className="flex min-h-14 flex-1 items-center gap-3 px-4">
-                <Search className="h-5 w-5 shrink-0 text-primary/45" />
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">
+              Discover handpicked holiday packages across India and beyond,
+              made for the kind of trip you&rsquo;ll remember.
+            </p>
 
-                <input
-                  type="text"
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  placeholder="Search by destination"
-                  aria-label="Search holiday destinations"
-                  className="w-full bg-transparent text-sm text-primary outline-none placeholder:text-primary/40 sm:text-base"
-                />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSearch();
+              }}
+              className="mt-8 max-w-2xl sm:mt-9"
+            >
+              <div className="flex flex-col gap-2 rounded-3xl border border-white/60 bg-white p-2 shadow-2xl shadow-black/25 sm:flex-row sm:items-center sm:rounded-full">
+                <label className="flex min-h-14 flex-1 items-center gap-3 px-4">
+                  <Search
+                    aria-hidden="true"
+                    className="h-5 w-5 shrink-0 text-primary/45"
+                  />
+
+                  <input
+                    type="text"
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    placeholder="Search by destination"
+                    aria-label="Search holiday destinations"
+                    className="w-full bg-transparent text-sm text-primary outline-none placeholder:text-primary/45 focus-visible:outline-none sm:text-base"
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-secondary px-7 text-sm font-semibold text-white shadow-lg shadow-secondary/20 transition hover:bg-secondary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:min-h-14 sm:rounded-full"
+                >
+                  <Search aria-hidden="true" className="h-4 w-4" />
+                  Search holidays
+                  <ArrowRight aria-hidden="true" className="ml-1 h-4 w-4" />
+                </button>
               </div>
+            </form>
 
-              {/* Search button */}
-              <button
-                type="submit"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-secondary px-7 text-sm font-semibold text-white transition hover:bg-secondary/90 sm:rounded-full"
-              >
-                <Search className="h-4 w-4" />
-                Search holidays
-              </button>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/75 sm:gap-x-5 sm:text-sm">
+              <span>Domestic holidays</span>
+              <span
+                aria-hidden="true"
+                className="h-1 w-1 rounded-full bg-sun/80"
+              />
+              <span>International trips</span>
+              <span
+                aria-hidden="true"
+                className="h-1 w-1 rounded-full bg-sun/80"
+              />
+              <span>Curated packages</span>
             </div>
-          </form>
-
-          {/* Supporting text */}
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/65 sm:text-sm">
-            <span>Domestic holidays</span>
-
-            <span className="h-1 w-1 rounded-full bg-white/40" />
-
-            <span>International trips</span>
-
-            <span className="h-1 w-1 rounded-full bg-white/40" />
-
-            <span>Curated packages</span>
           </div>
         </div>
       </div>
